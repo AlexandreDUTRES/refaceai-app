@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/models/generation.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/pages/home/generations/generations_page_bloc.dart';
@@ -35,7 +36,7 @@ class GenerationsPage extends StatelessWidget {
               Container(
                 width: double.infinity,
                 child: Text(
-                  'Vous n\'avez pas encore généré d\'image, choisissez un modèle pour continuer.',
+                  tr("pages.home.generations.txt_no_elements"),
                   style: _appTheme.fonts.sBody.semibold.style,
                 ),
               ),
@@ -122,7 +123,7 @@ class GenerationsPage extends StatelessWidget {
                 ),
                 PageTopBar(
                   backButton: false,
-                  title: "Mes images",
+                  title: tr("pages.home.generations.txt_title"),
                 ),
                 GenerationsBuilder(
                   (generations) => generations.isNotEmpty

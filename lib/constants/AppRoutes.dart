@@ -1,5 +1,7 @@
 import 'package:photogenerator/global_navigator/models/app_route.dart';
 import 'package:photogenerator/global_navigator/utils.dart';
+import 'package:photogenerator/pages/ad_warning/ad_warning_page.dart';
+import 'package:photogenerator/pages/ad_warning/ad_warning_page_bloc.dart';
 import 'package:photogenerator/pages/category/category_page.dart';
 import 'package:photogenerator/pages/category/category_page_bloc.dart';
 import 'package:photogenerator/pages/gallery/gallery_page.dart';
@@ -18,6 +20,8 @@ import 'package:photogenerator/pages/photo/photo_page.dart';
 import 'package:photogenerator/pages/photo/photo_page_bloc.dart';
 import 'package:photogenerator/pages/onboarding/onboarding_page.dart';
 import 'package:photogenerator/pages/onboarding/onboarding_page_bloc.dart';
+import 'package:photogenerator/pages/settings/settings_page.dart';
+import 'package:photogenerator/pages/settings/settings_page_bloc.dart';
 import 'package:photogenerator/pages/splash/splash_page.dart';
 import 'package:photogenerator/pages/splash/splash_page_bloc.dart';
 
@@ -40,6 +44,15 @@ class AppRoutes {
           forcedLightStatusBar: true,
           createBloc: (args) => HomePageBloc(args),
           createChild: (_) => HomePage(),
+        ),
+        AppRoute<SettingsPageBloc>(
+          name: "/SettingsPage",
+          dataSharingName: "SettingsPage",
+          pushFunction: pushToGN,
+          disableOverlayAlerts: true,
+          forcedLightStatusBar: true,
+          createBloc: (args) => SettingsPageBloc(args),
+          createChild: (_) => SettingsPage(),
         ),
         AppRoute<GalleryPageBloc>(
           name: "/GalleryPage",
@@ -94,6 +107,15 @@ class AppRoutes {
           forcedLightStatusBar: true,
           createBloc: (args) => OnboardingPageBloc(args),
           createChild: (_) => OnboardingPage(),
+        ),
+        AppRoute<AdWarningPageBloc>(
+          name: "/AdWarningPage",
+          dataSharingName: "AdWarningPage",
+          pushFunction: pushToGN,
+          disableOverlayAlerts: true,
+          forcedLightStatusBar: true,
+          createBloc: (args) => AdWarningPageBloc(args),
+          createChild: (_) => AdWarningPage(),
         ),
         AppRoute<CameraPageBloc>(
           name: "/CameraPage",

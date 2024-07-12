@@ -7,6 +7,10 @@ class ModelsPageData {}
 class ModelsPageBloc extends Bloc<ModelsPageData> {
   ModelsPageBloc() : super(ModelsPageData()) {}
 
+  Future<void> goToSettingsPage() async {
+    await GlobalNavigator().navigate("/SettingsPage");
+  }
+
   Future<void> goToCategoryPage(ModelCategory category) async {
     await GlobalNavigator().navigate(
       "/CategoryPage",

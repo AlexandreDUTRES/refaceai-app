@@ -1,1 +1,92 @@
-{}
+{
+    "globals": {
+        "back": "Back",
+        "share": "Share"
+    },
+    "pages": {
+        "ad_warning_page": {
+            "btn_confirm": "I understand",
+            "txt_info": "This helps fund the app and keeps you entertained while generating.",
+            "txt_title": "An ad is about to be displayed"
+        },
+        "gallery": {
+            "txt_title": "Select an image"
+        },
+        "generation": {
+            "txt_saved": "Saved to gallery",
+            "txt_donwload": "Download to gallery",
+            "share_msg": "Look what I created with ReFaceAI! Try it yourself and transform in an instant! 🌟 #ReFaceAI",
+            "snackbar_image_saved": "The image has been successfully downloaded to your device"
+        },
+        "home": {
+            "btn_nav_model": "Models",
+            "btn_nav_images": "Images",
+            "generations": {
+                "txt_no_elements": "You haven't generated any images yet, choose a model to continue.",
+                "txt_title": "My images"
+            },
+            "models": {
+                "btn_see_all": "SEE ALL ({modelsCnt})"
+            }
+        },
+        "loading": {
+            "sentence_0": "Each generation is unique,\ntry this model as much as you like",
+            "sentence_1": "Your image is\non its way",
+            "sentence_2": "Generation can\ntake up to a minute",
+            "sentence_3": "Please wait\na few more moments",
+            "sentence_4": "Just a moment,\nwe're finalizing the details",
+            "sentence_5": "Hang tight,\nyour image is almost here",
+            "sentence_6": "Just a moment,\nwe're adjusting the image",
+            "sentence_7": "It's almost ready,\nthank you for staying online"
+        },
+        "model": {
+            "btn_select_photo": "Choose a photo",
+            "txt_info_1_title": "Select a single photo of yourself",
+            "txt_info_1_description": "Your face should be clearly visible, neutral, sufficiently large, well-lit, and centered.",
+            "txt_info_2_title": "Avoid the following",
+            "txt_info_2_description": "No group photos, no nudity, no animals, minimal accessories, no funny faces.",
+            "snackbar_no_ad": "You are in the queue, please try again in a few moments"
+        },
+        "photo": {
+            "txt_no_face": "No face detected"
+        },
+        "settings": {
+            "txt_title": "Settings",
+            "txt_account": "Account",
+            "txt_account_delete": "Delete data",
+            "txt_about": "About",
+            "txt_about_help": "Help",
+            "txt_about_contact": "Contact us",
+            "txt_about_terms": "Terms of Use",
+            "txt_about_policy": "Privacy Policy"
+        }
+    },
+    "utils": {
+        "common": {
+            "snackbar_error": "An error occurred, please try again later"
+        },
+        "onboarding_tools": {
+            "1": {
+                "title": "Welcome to ReFaceAI",
+                "description": "Transform yourself in seconds",
+                "btn_text": "Start",
+                "sub_btn_text": "By pressing the 'Start' button, you accept our Privacy Policy and Terms of Use"
+            },
+            "2": {
+                "title": "Choose a model",
+                "description": "Browse categories and choose from a wide variety of scenes.",
+                "btn_text": "Continue"
+            },
+            "3": {
+                "title": "Select a photo",
+                "description": "Take a photo of yourself, or select an existing image from your gallery.",
+                "btn_text": "Continue"
+            },
+            "4": {
+                "title": "Admire your realistic avatar!",
+                "description": "And share the stunning result with your friends on social media.",
+                "btn_text": "Continue"
+            }
+        }
+    }
+}

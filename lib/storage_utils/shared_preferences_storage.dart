@@ -25,6 +25,16 @@ class SharedPreferencesStorage {
     return val == true;
   }
 
+  // AD WARNING
+  static Future<void> storeAdWarning(bool val) async {
+    await _prefs.setBool("ad_warning", val);
+  }
+
+  static bool getAdWarning() {
+    bool? val = _prefs.getBool("ad_warning");
+    return val == true;
+  }
+
   // SAVED PICTURES
   static Future<void> storeSavedPictures(Map<String, String> val) async {
     await _prefs.setString("saved_pictures", json.encode(val));

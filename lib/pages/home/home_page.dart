@@ -5,17 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/app_ui/variables.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/models/home_navigation_state.dart';
-import 'package:photogenerator/pages/home/credits/credits_page.dart';
-import 'package:photogenerator/pages/home/credits/credits_page_bloc.dart';
 import 'package:photogenerator/pages/home/generations/generations_page.dart';
 import 'package:photogenerator/pages/home/generations/generations_page_bloc.dart';
 import 'package:photogenerator/pages/home/home_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/pages/home/models/models_page.dart';
 import 'package:photogenerator/pages/home/models/models_page_bloc.dart';
-import 'package:photogenerator/pages/home/settings/settings_page.dart';
-import 'package:photogenerator/pages/home/settings/settings_page_bloc.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 
@@ -95,7 +92,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: _buildNavigationIcon(
-                        text: "Modèles",
+                        text: tr("pages.home.btn_nav_model"),
                         iconData: Icons.face_retouching_natural_outlined,
                         isActive: snapshot.data!.navigationState ==
                             HomeNavigationState.models,
@@ -105,32 +102,12 @@ class HomePage extends StatelessWidget {
                     ),
                     Expanded(
                       child: _buildNavigationIcon(
-                        text: "Images",
+                        text: tr("pages.home.btn_nav_images"),
                         iconData: Icons.photo_library_outlined,
                         isActive: snapshot.data!.navigationState ==
                             HomeNavigationState.generations,
                         onTap: () => bloc.goToNavigationState(
                             HomeNavigationState.generations),
-                      ),
-                    ),
-                    Expanded(
-                      child: _buildNavigationIcon(
-                        text: "Crédits",
-                        iconData: Icons.monetization_on_outlined,
-                        isActive: snapshot.data!.navigationState ==
-                            HomeNavigationState.credits,
-                        onTap: () => bloc
-                            .goToNavigationState(HomeNavigationState.credits),
-                      ),
-                    ),
-                    Expanded(
-                      child: _buildNavigationIcon(
-                        text: "Paramètres",
-                        iconData: Icons.settings_outlined,
-                        isActive: snapshot.data!.navigationState ==
-                            HomeNavigationState.settings,
-                        onTap: () => bloc
-                            .goToNavigationState(HomeNavigationState.settings),
                       ),
                     ),
                   ],
@@ -160,18 +137,6 @@ class HomePage extends StatelessWidget {
       child: GenerationsPage(),
     );
 
-    final BlocProvider<CreditsPageBloc> creditsProvider =
-        BlocProvider<CreditsPageBloc>(
-      bloc: CreditsPageBloc(),
-      child: CreditsPage(),
-    );
-
-    final BlocProvider<SettingsPageBloc> settingsProvider =
-        BlocProvider<SettingsPageBloc>(
-      bloc: SettingsPageBloc(),
-      child: SettingsPage(),
-    );
-
     return StreamBuilder<HomePageData>(
       stream: bloc.stream,
       builder: (context, snapshot) {
@@ -193,10 +158,6 @@ class HomePage extends StatelessWidget {
                     return modelsProvider;
                   case HomeNavigationState.generations:
                     return generationsProvider;
-                  case HomeNavigationState.credits:
-                    return creditsProvider;
-                  case HomeNavigationState.settings:
-                    return settingsProvider;
                 }
               },
               onPageChanged: (i) =>

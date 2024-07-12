@@ -28,15 +28,9 @@ class GenerationBloc extends BlocRx<GenerationBlocData> {
     }
   }
 
-  Future<Generation> createGeneration(
-    String userId, {
-    required String filePath,
-    required String promptId,
-  }) async {
-    Generation generation = await Api.createGeneration(
-      userId,
-      filePath: filePath,
-      promptId: promptId,
+  Future<Generation> retreiveGenerationById(String generationId) async {
+    Generation generation = await Api.getGeneration(
+      generationId,
     );
 
     blocData!.generations.add(generation);

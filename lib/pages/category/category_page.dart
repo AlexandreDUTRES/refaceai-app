@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/utils.dart';
+import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/pages/category/category_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/ui/widgets/model_preview.dart';
@@ -58,7 +60,8 @@ class CategoryPage extends StatelessWidget {
                 ),
                 PageTopBar(
                   backButton: true,
-                  title: bloc.category.name(Locale("fr")),
+                  title: bloc.category
+                      .name(getGlobalLocale(GlobalNavigator().currentContext)),
                 ),
                 Padding(padding: EdgeInsets.only(top: 5.sp)),
                 _buildModelsList(),

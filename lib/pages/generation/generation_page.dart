@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/models/generation.dart';
 import 'package:photogenerator/pages/generation/generation_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
@@ -73,11 +74,11 @@ class GenerationPage extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 2.sp),
                 child: isLocallySaved
                     ? Text(
-                        "Enregistré dans la galerie",
+                        tr("pages.generation.txt_saved"),
                         style: _appTheme.fonts.sBody.bold.style,
                       )
                     : Text(
-                        "Télécharger dans la galerie",
+                        tr("pages.generation.txt_donwload"),
                         style: _appTheme.fonts.sBody.bold.style,
                       ),
               ),
@@ -109,7 +110,7 @@ class GenerationPage extends StatelessWidget {
                   color: _appTheme.palette.textColor,
                 ),
                 Padding(padding: EdgeInsets.only(left: 8.sp)),
-                Text("Partager"),
+                Text(tr("globals.share")),
               ],
             ),
           ),
@@ -154,7 +155,7 @@ class GenerationPage extends StatelessWidget {
           ),
           PageTopBar(
             backButton: true,
-            title: "Retour",
+            title: tr("globals.back"),
             additionalWidget: _buildDeleteButton(),
           ),
           Padding(padding: EdgeInsets.only(top: 35.sp)),

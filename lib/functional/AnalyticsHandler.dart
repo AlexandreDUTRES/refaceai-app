@@ -11,15 +11,4 @@ class AnalyticsHandler {
       if (kDebugMode) print(e);
     }
   }
-
-  static void micPressed(int duration) {
-    try {
-      FirebaseAnalytics.instance.logEvent(
-        name: "mic_pressed",
-        parameters: {"duration": (duration / 1000).round()},
-      );
-    } catch (e) {
-      if (kDebugMode) print(e);
-    }
-  }
 }

@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:path_provider/path_provider.dart';
 import 'package:photogenerator/app_ui/loader_utils.dart';
 import 'package:photogenerator/bloc_utils/bloc.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/models/generation.dart';
 import 'package:photogenerator/storage_utils/shared_preferences_storage.dart';
@@ -99,7 +100,7 @@ class GenerationPageBloc extends Bloc<GenerationPageData> {
       _checkIsLocallySaved();
 
       GlobalLoader.hideOverlayLoader();
-      Common.showSnackbar("L'image a bien été téléchargée sur votre appareil");
+      Common.showSnackbar(tr("pages.generation.snackbar_image_saved"));
     } catch (error) {
       GlobalLoader.hideOverlayLoader();
       Common.showSnackbar();
@@ -114,8 +115,7 @@ class GenerationPageBloc extends Bloc<GenerationPageData> {
       GlobalLoader.hideOverlayLoader();
       await Share.shareXFiles(
         [XFile(filePath)],
-        text:
-            "Regardez ce que j'ai créé avec ReFaceAI ! Essayez aussi et transformez-vous en un instant ! 🌟 #ReFaceAI",
+        text: tr("pages.generation.share_msg"),
       );
     } catch (_) {
       GlobalLoader.hideOverlayLoader();

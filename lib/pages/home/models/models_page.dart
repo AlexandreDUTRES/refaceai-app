@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
+import 'package:photogenerator/global_localization/utils.dart';
+import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/models/model.dart';
 import 'package:photogenerator/models/model_category.dart';
 import 'package:photogenerator/pages/home/models/models_page_bloc.dart';
@@ -22,6 +25,7 @@ class ModelsPage extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16.sp),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             height: 35.sp,
@@ -31,6 +35,18 @@ class ModelsPage extends StatelessWidget {
               color: _appTheme.palette.textColor,
               noWidth: true,
               noHeight: true,
+            ),
+          ),
+          GestureDetector(
+            onTap: bloc.goToSettingsPage,
+            child: Container(
+              height: 35.sp,
+              width: 35.sp,
+              color: Colors.transparent,
+              child: Icon(
+                Icons.settings,
+                color: _appTheme.palette.textColor,
+              ),
             ),
           ),
         ],
@@ -68,7 +84,8 @@ class ModelsPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      category.name(Locale("fr")),
+                      category.name(
+                          getGlobalLocale(GlobalNavigator().currentContext)),
                       style: _appTheme.fonts.sTitle.semibold.style,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -77,7 +94,10 @@ class ModelsPage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 6.sp),
                     child: Text(
-                      "TOUT AFFICHER (${category.modelsCnt})",
+                      tr(
+                        "pages.home.models.btn_see_all",
+                        namedArgs: {"modelsCnt": category.modelsCnt.toString()},
+                      ),
                       style: _appTheme.fonts.xsBody.semibold.style,
                     ),
                   ),

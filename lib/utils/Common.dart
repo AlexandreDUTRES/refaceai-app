@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/main.dart';
 import 'package:photogenerator/models/generation.dart';
@@ -23,10 +24,10 @@ class Common {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            msg ?? "Une erreur est survenue, veuillez réessayer plus tard",
+            msg ?? tr("utils.common.snackbar_error"),
             style: _appTheme.fonts.body.background.style,
           ),
-          duration: Duration(seconds: 3),
+          duration: Duration(seconds: 5),
           backgroundColor: _appTheme.palette.textColor.withOpacity(0.8),
         ),
       );

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/pages/gallery/gallery_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/ui/bloc_manager/gallery_builder.dart';
@@ -123,7 +124,7 @@ class GalleryPage extends StatelessWidget {
                 ),
                 PageTopBar(
                   backButton: true,
-                  title: "Sélectionner une image",
+                  title: tr("pages.gallery.txt_title"),
                 ),
                 _buildList(),
                 Padding(padding: EdgeInsets.only(top: 15.sp)),

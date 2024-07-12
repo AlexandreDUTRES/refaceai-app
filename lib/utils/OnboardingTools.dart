@@ -1,37 +1,35 @@
 import 'dart:async';
 
 import 'package:photogenerator/app_ui/custom_images.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
 
 class OnboardingTools {
   static Future<void> startTour() async {
     await _waitPage(
       image: CustomPngs.onboardings__onboarding_1,
-      title: "Bienvenue sur ReFaceAI",
-      description: "Transformez-vous en quelques secondes",
-      btnText: "Commencer",
-      subBtnText:
-          "En appuyant sur le bouton 'Commencer', vous acceptez notre Politique de confidentialité et Conditions d'utilisation",
+      title: tr("utils.onboarding_tools.1.title"),
+      description: tr("utils.onboarding_tools.1.description"),
+      btnText: tr("utils.onboarding_tools.1.btn_text"),
+      subBtnText: tr("utils.onboarding_tools.1.sub_btn_text"),
     );
     await _waitPage(
       image: CustomPngs.onboardings__onboarding_2,
-      title: "Choisissez un modèle",
-      description:
-          "Parcourez les catégories et choisissez parmi une grande variété de scènes.",
-      btnText: "Continuer",
+      title: tr("utils.onboarding_tools.2.title"),
+      description: tr("utils.onboarding_tools.2.description"),
+      btnText: tr("utils.onboarding_tools.2.btn_text"),
     );
     await _waitPage(
       image: CustomPngs.onboardings__onboarding_3,
-      title: "Sélectionnez une photo",
-      description:
-          "Prenez-vous en photo, ou sélectionnez une image existante dans votre galerie.",
-      btnText: "Continuer",
+      title: tr("utils.onboarding_tools.3.title"),
+      description: tr("utils.onboarding_tools.3.description"),
+      btnText: tr("utils.onboarding_tools.3.btn_text"),
     );
     await _waitPage(
       image: CustomPngs.onboardings__onboarding_4,
-      title: "Admirez votre avatar réaliste !",
-      description: "Et partagez le résultat époustouflant avec vos amis sur les réseaux.",
-      btnText: "Continuer",
+      title: tr("utils.onboarding_tools.4.title"),
+      description: tr("utils.onboarding_tools.4.description"),
+      btnText: tr("utils.onboarding_tools.4.btn_text"),
     );
   }
 

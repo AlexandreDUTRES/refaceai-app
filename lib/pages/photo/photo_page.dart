@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/pages/photo/photo_page_bloc.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 
@@ -24,7 +25,7 @@ class PhotoPage extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              "Aucun visage détecté",
+              tr("pages.photo.txt_no_face"),
               style: _appTheme.fonts.body.semibold.style,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -91,7 +92,6 @@ class PhotoPage extends StatelessWidget {
 
     return PageLayout(
       backgroundColor: _appTheme.palette.backgroundColor,
-      
       enableScroll: false,
       bodyBuilder: (BuildContext context, BoxConstraints constraints) {
         return StreamBuilder<PhotoPageData>(

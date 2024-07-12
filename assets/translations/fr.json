@@ -1,1 +1,92 @@
-{}
+{
+    "globals": {
+        "back": "Retour",
+        "share": "Partager"
+    },
+    "pages": {
+        "ad_warning_page": {
+            "btn_confirm": "J'ai compris",
+            "txt_info": "Cela permet de financer l'application et de vous faire patentier pendant la génération.",
+            "txt_title": "Une pub va être diffusée"
+        },
+        "gallery": {
+            "txt_title": "Sélectionner une image"
+        },
+        "generation": {
+            "txt_saved": "Enregistré dans la galerie",
+            "txt_donwload": "Télécharger dans la galerie",
+            "share_msg": "Regardez ce que j'ai créé avec ReFaceAI ! Essayez aussi et transformez-vous en un instant ! 🌟 #ReFaceAI",
+            "snackbar_image_saved": "L'image a bien été téléchargée sur votre appareil"
+        },
+        "home": {
+            "btn_nav_model": "Modèles",
+            "btn_nav_images": "Images",
+            "generations": {
+                "txt_no_elements": "Vous n'avez pas encore généré d'image, choisissez un modèle pour continuer.",
+                "txt_title": "Mes images"
+            },
+            "models": {
+                "btn_see_all": "TOUT AFFICHER ({modelsCnt})"
+            }
+        },
+        "loading": {
+            "sentence_0": "Chaque génération est unique,\ntestez ce modèle à volonté",
+            "sentence_1": "Votre image est\nen cours de route",
+            "sentence_2": "La génération peut\nprendre jusqu'à une minute",
+            "sentence_3": "Veuillez patienter\nencore quelques instants",
+            "sentence_4": "Juste un moment,\nnous finalisons les détails",
+            "sentence_5": "Accrochez-vous,\nvotre image arrive bientôt",
+            "sentence_6": "Un petit instant,\nnous ajustons l'image",
+            "sentence_7": "C'est presque prêt,\nmerci de rester en ligne"
+        },
+        "model": {
+            "btn_select_photo": "Choisir une photo",
+            "txt_info_1_title": "Sélectionnez une seule photo de vous",
+            "txt_info_1_description": "Votre visage doit être bien visible, neutre, assez grand, bien éclairé et centré.",
+            "txt_info_2_title": "Évitez les choses suivantes",
+            "txt_info_2_description": "Pas de photo de groupe, pas de nudité, pas d'animaux, un minimum d'accessoires, pas de grimaces.",
+            "snackbar_no_ad": "Voud êtes en file d'attente, veuillez réessayer dans quelques instants"
+        },
+        "photo": {
+            "txt_no_face": "Aucun visage détecté"
+        },
+        "settings": {
+            "txt_title": "Paramètres",
+            "txt_account": "Compte",
+            "txt_account_delete": "Supprimer les données",
+            "txt_about": "À propos",
+            "txt_about_help": "Aide",
+            "txt_about_contact": "Nous contacter",
+            "txt_about_terms": "Conditions générales d'utilisations",
+            "txt_about_policy": "Politique de confidentialité"
+        }
+    },
+    "utils": {
+        "common": {
+            "snackbar_error": "Une erreur est survenue, veuillez réessayer plus tard"
+        },
+        "onboarding_tools": {
+            "1": {
+                "title": "Bienvenue sur ReFaceAI",
+                "description": "Transformez-vous en quelques secondes",
+                "btn_text": "Commencer",
+                "sub_btn_text": "En appuyant sur le bouton 'Commencer', vous acceptez notre Politique de confidentialité et Conditions d'utilisation"
+            },
+            "2": {
+                "title": "Choisissez un modèle",
+                "description": "Parcourez les catégories et choisissez parmi une grande variété de scènes.",
+                "btn_text": "Continuer"
+            },
+            "3": {
+                "title": "Sélectionnez une photo",
+                "description": "Prenez-vous en photo, ou sélectionnez une image existante dans votre galerie.",
+                "btn_text": "Continuer"
+            },
+            "4": {
+                "title": "Admirez votre avatar réaliste !",
+                "description": "Et partagez le résultat époustouflant avec vos amis sur les réseaux.",
+                "btn_text": "Continuer"
+            }
+        }
+    }
+}

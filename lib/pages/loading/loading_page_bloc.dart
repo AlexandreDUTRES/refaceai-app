@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:photogenerator/bloc_utils/bloc.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 
 class LoadingPageData {
   int sentenceIndex = 0;
@@ -14,19 +15,16 @@ class LoadingPageBloc extends Bloc<LoadingPageData> {
 
   LoadingPageBloc() : super(LoadingPageData()) {
     loadingSentences = [
-      "Votre image est\nen cours de route",
-      "La génération peut\nprendre jusqu'à une minute",
-      "Veuillez patienter\nencore quelques instants",
-      "Juste un moment,\nnous finalisons les détails",
-      "Accrochez-vous,\nvotre image arrive bientôt",
-      "Un petit instant,\nnous ajustons l'image",
-      "C'est presque prêt,\nmerci de rester en ligne",
+      tr("pages.loading.sentence_1"),
+      tr("pages.loading.sentence_2"),
+      tr("pages.loading.sentence_3"),
+      tr("pages.loading.sentence_4"),
+      tr("pages.loading.sentence_5"),
+      tr("pages.loading.sentence_6"),
+      tr("pages.loading.sentence_7"),
     ];
     loadingSentences.shuffle();
-    loadingSentences.insert(
-      0,
-      "Chaque génération est unique,\ntestez ce modèle à volonté",
-    );
+    loadingSentences.insert(0, tr("pages.loading.sentence_0"));
 
     _timer = Timer.periodic(Duration(seconds: 5), (timer) {
       blocData.opacity = 0;

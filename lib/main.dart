@@ -10,7 +10,7 @@ import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/app_ui/theme/theme_palette.dart';
 import 'package:photogenerator/app_ui/theme_utils.dart';
-import 'package:photogenerator/functional/PurchaseHandler.dart';
+import 'package:photogenerator/functional/AdsHandler.dart';
 import 'package:photogenerator/functional/bloc_manager.dart';
 import 'package:photogenerator/functional/GlobalNavigatorHandler.dart';
 import 'package:photogenerator/Globals.dart';
@@ -21,7 +21,6 @@ import 'package:photogenerator/models/global_app_data.dart';
 import 'package:photogenerator/storage_utils/shared_preferences_storage.dart';
 import 'package:photogenerator/ui/widgets/camera_view.dart';
 import 'package:provider/provider.dart';
-import 'package:timeago/timeago.dart' as timeago;
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -60,10 +59,6 @@ void main() async {
     // load locale assets
     await FlutterConfig.loadEnvVariables();
 
-    // load locale assets
-    timeago.setLocaleMessages('fr', timeago.FrMessages());
-    timeago.setLocaleMessages('fr_short', timeago.FrShortMessages());
-
     // initialize storage
     await SharedPreferencesStorage.initialize();
 
@@ -78,7 +73,7 @@ void main() async {
           child: _buildAppWidget(),
           restartComputeFunction: (resetUniverseHandlerHasBeenRefreshed) async {
             print("restartComputeFunction");
-            await PurchaseHandler.reset();
+            await AdsHandler.dispose();
             await blocManager.disposeAllBlocs();
           },
         ),
@@ -95,7 +90,6 @@ Widget _buildAppWidget() {
     path: 'assets/translations',
     fallbackLocale: Globals.supportedLocales[0],
     child: MainApp(),
-    // assetLoader: CustomLangageLoader(),
   );
 }
 

@@ -3,6 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
+import 'package:photogenerator/global_localization/utils.dart';
+import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/models/model.dart';
 import 'package:photogenerator/pages/model/model_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
@@ -40,7 +43,8 @@ class ModelPage extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: PageTopBar(
                   backButton: true,
-                  title: model.name(Locale("fr")),
+                  title: model
+                      .name(getGlobalLocale(GlobalNavigator().currentContext)),
                 ),
               ),
               Container(
@@ -130,7 +134,7 @@ class ModelPage extends StatelessWidget {
                   color: _appTheme.palette.textColor,
                 ),
                 Padding(padding: EdgeInsets.only(left: 8.sp)),
-                Text("Choisir une photo"),
+                Text(tr("pages.model.btn_select_photo")),
               ],
             ),
           ),
@@ -151,17 +155,15 @@ class ModelPage extends StatelessWidget {
           _buildModelImage(model),
           Padding(padding: EdgeInsets.only(top: 25.sp)),
           _buildInfoText(
-            title: "Sélectionnez une seule photo de vous",
-            description:
-                "Votre visage doit être bien visible, neutre, assez grand, bien éclairé et centré.",
+            title: tr("pages.model.txt_info_1_title"),
+            description: tr("pages.model.txt_info_1_description"),
             iconData: Icons.check,
             iconColor: Colors.blue[800]!,
           ),
           Padding(padding: EdgeInsets.only(top: 20.sp)),
           _buildInfoText(
-            title: "Évitez les choses suivantes",
-            description:
-                "Pas de photo de groupe, pas de nudité, pas d'animaux, un minimum d'accessoires, pas de grimaces.",
+            title: tr("pages.model.txt_info_2_title"),
+            description: tr("pages.model.txt_info_2_description"),
             iconData: Icons.close,
             iconColor: Colors.red[800]!,
           ),
@@ -195,7 +197,7 @@ class ModelPage extends StatelessWidget {
                 return _buildModelPage(constraints, bloc.models[i]);
               },
               onPageChanged: (i) => bloc.setIndex(i),
-            );           
+            );
           },
         );
       },

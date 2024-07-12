@@ -124,6 +124,7 @@ enum CustomPngs {
 }
 
 enum CustomLotties {
+  animated__ad,
   animated__loader,
   animated__message;
 

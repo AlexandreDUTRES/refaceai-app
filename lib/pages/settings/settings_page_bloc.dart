@@ -6,7 +6,7 @@ import 'package:photogenerator/utils/OnboardingTools.dart';
 class SettingsPageData {}
 
 class SettingsPageBloc extends Bloc<SettingsPageData> {
-  SettingsPageBloc() : super(SettingsPageData());
+  SettingsPageBloc(Map<String, dynamic> args) : super(SettingsPageData());
 
   Future<void> openDeleteUserModal() async {
     await GlobalNavigator().navigate("/DeleteUserModal");

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:photogenerator/Globals.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/main.dart';
-import 'package:photogenerator/pages/home/settings/settings_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
-import 'package:photogenerator/ui/widgets/main_scroller.dart';
+import 'package:photogenerator/pages/settings/settings_page_bloc.dart';
+import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:photogenerator/ui/widgets/page_top_bar.dart';
 
 // ignore: must_be_immutable
@@ -85,49 +86,53 @@ class SettingsPage extends StatelessWidget {
       stream: bloc.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) return Container();
-
-        return LayoutBuilder(
-          builder: (context, constraints) => MainScroller(
-            parentHeight: constraints.maxHeight,
-            child: Column(
+        return PageLayout(
+          backgroundColor: _appTheme.palette.backgroundColor,
+          enableScroll: true,
+          bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+            return Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
                 ),
                 PageTopBar(
                   backButton: false,
-                  title: "Paramètres",
+                  title: tr("pages.settings.txt_title"),
                 ),
                 Padding(padding: EdgeInsets.only(top: 10.sp)),
-                _buildSectionTitle("Compte"),
+                _buildSectionTitle(
+                  tr("pages.settings.txt_account"),
+                ),
                 Padding(padding: EdgeInsets.only(top: 10.sp)),
                 _buildButton(
                   iconData: Icons.delete_outline,
-                  title: "Supprimer les données",
+                  title: tr("pages.settings.txt_account_delete"),
                   onTap: () async => await bloc.openDeleteUserModal(),
                 ),
                 Padding(padding: EdgeInsets.only(top: 20.sp)),
-                _buildSectionTitle("A propos"),
+                _buildSectionTitle(
+                  tr("pages.settings.txt_about"),
+                ),
                 Padding(padding: EdgeInsets.only(top: 10.sp)),
                 _buildButton(
                   iconData: Icons.help_outline,
-                  title: "Aide",
+                  title: tr("pages.settings.txt_about_help"),
                   onTap: () async => await bloc.startOnboardingTour(),
                 ),
                 _buildButton(
                   iconData: Icons.mail_outline,
-                  title: "Nous contacter",
+                  title: tr("pages.settings.txt_about_terms"),
                   text: "madproject.corp@gmail.com",
                   onTap: () async => await bloc.contactUs(),
                 ),
                 _buildButton(
                   iconData: Icons.gavel_rounded,
-                  title: "Conditions générales d'utilisations",
+                  title: tr("pages.settings.txt_about_policy"),
                   onTap: () async => await bloc.openTerms(),
                 ),
                 _buildButton(
                   iconData: Icons.policy_outlined,
-                  title: "Politique de confidentialité",
+                  title: tr("pages.settings.txt_title"),
                   onTap: () async => await bloc.openPrivacy(),
                 ),
                 _buildButton(
@@ -138,8 +143,8 @@ class SettingsPage extends StatelessWidget {
                   onTap: () => {},
                 ),
               ],
-            ),
-          ),
+            );
+          },
         );
       },
     );

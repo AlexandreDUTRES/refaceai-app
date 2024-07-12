@@ -1,4 +1,3 @@
-import 'package:photogenerator/blocs/ads_bloc.dart';
 import 'package:photogenerator/blocs/gallery_bloc.dart';
 import 'package:photogenerator/blocs/generation_bloc.dart';
 import 'package:photogenerator/blocs/model_bloc.dart';
@@ -10,7 +9,6 @@ class BlocManager {
     _initGenerationBloc();
     _initGalleryBloc();
     _initModelBloc();
-    _initAdsBloc();
   }
 
   Future<void> disposeAllBlocs() async {
@@ -19,7 +17,6 @@ class BlocManager {
       _disposeGenerationBloc(),
       _disposeGalleryBloc(),
       _disposeModelBloc(),
-      _disposeAdsBloc(),
     ]);
   }
 
@@ -56,7 +53,7 @@ class BlocManager {
     await _galleryBloc.waitTillListenerAndDispose();
   }
 
-   // GENERATION BLOC
+  // GENERATION BLOC
   late ModelBloc _modelBloc;
   ModelBloc get modelBloc => _modelBloc;
   void _initModelBloc() {
@@ -65,16 +62,5 @@ class BlocManager {
 
   Future<void> _disposeModelBloc() async {
     await _modelBloc.waitTillListenerAndDispose();
-  }
-
-  // ADS BLOC
-  late AdsBloc _adsBloc;
-  AdsBloc get adsBloc => _adsBloc;
-  void _initAdsBloc() {
-    _adsBloc = AdsBloc();
-  }
-
-  Future<void> _disposeAdsBloc() async {
-    await _adsBloc.waitTillListenerAndDispose();
   }
 }
