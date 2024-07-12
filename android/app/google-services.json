@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138602127710",
+    "project_id": "photogenerator-298cf",
+    "storage_bucket": "photogenerator-298cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138602127710:android:274c9103ee17e9d99cafcf",
+        "android_client_info": {
+          "package_name": "com.madprojects.photogenerator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIdEB8nb8OF0_yKhqDYlhVTa5afRMfylc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

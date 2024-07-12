@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDMm_JNtvh5AM_fJdKu9wsZUhcmJoAb38Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>138602127710</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.madprojects.photogenerator</string>
+	<key>PROJECT_ID</key>
+	<string>photogenerator-298cf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>photogenerator-298cf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:138602127710:ios:0ab46c329eaaa0819cafcf</string>
+</dict>
+</plist>

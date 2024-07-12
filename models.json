@@ -1,0 +1,1266 @@
+{
+    "version": "0.1",
+    "globalPrompt": "looking at camera, full body shot, ultra realistic, high quality photography, Canon EOS R3, f2.8, 80mm, hasselblad, bokeh effect, blurry background",
+    "categories": [
+        {
+            "id": "superheros",
+            "name": {
+                "en": "Superheros",
+                "fr": "Super-héros"
+            },
+            "prompt": "heroic pose, proud",
+            "models": [
+                {
+                    "id": "superman",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Superman",
+                        "fr": "Superman"
+                    },
+                    "prompt": "Photography of Superman with his red and blue superhero costume",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/superman/superman-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/superman/superman-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/superman/superman-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/superman/superman-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "batman",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Batman",
+                        "fr": "Batman"
+                    },
+                    "prompt": "Photography of Batman without his mask, wearing a dark, cape costume",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/batman/batman-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/batman/batman-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/batman/batman-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/batman/batman-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "thor",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Thor",
+                        "fr": "Thor"
+                    },
+                    "prompt": "Photography of Thor wielding his hammer Mjolnir with lightning behind",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/thor/thor-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/thor/thor-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/thor/thor-male_1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/thor/thor-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "aquaman",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Aquaman",
+                        "fr": "Aquaman"
+                    },
+                    "prompt": "Photography of Aquaman in his gold and green scale costume, holding a trident",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/aquaman/aquaman-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/aquaman/aquaman-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/aquaman/aquaman-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/aquaman/aquaman-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "wonderwoman",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Wonder Woman",
+                        "fr": "Wonderwoman"
+                    },
+                    "prompt": "Photography of Wonder Woman in her iconic red, blue, and gold costume",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/wonderwoman/wonderwoman-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/wonderwoman/wonderwoman-female_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "captainamerica",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Captain America",
+                        "fr": "Captain America"
+                    },
+                    "prompt": "Photography of Captain America with his blue costume, holding his shield",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainamerica/captainamerica-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainamerica/captainamerica-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainamerica/captainamerica-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainamerica/captainamerica-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "doctorstrange",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Doctor Strange",
+                        "fr": "Docteur strange"
+                    },
+                    "prompt": "Photography of Doctor Strange in his mystical robe with the Eye of Agamotto",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/doctorstrange/doctorstrange-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/doctorstrange/doctorstrange-female_2.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/doctorstrange/doctorstrange-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/doctorstrange/doctorstrange-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "harleyqueen",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Harley Quinn",
+                        "fr": "Harley Queen"
+                    },
+                    "prompt": "Photography of Harley Quinn in her spotted white t-shirt and red blue jacket, white makeup face, holding a baseball bat",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/harleyqueen/harleyqueen-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/harleyqueen/harleyqueen-female_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "joker",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Joker",
+                        "fr": "Joker"
+                    },
+                    "prompt": "Photography of Joker with his distinct green hair and white makeup face, wearing a purple suit",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/joker/joker-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/joker/joker-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/joker/joker-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/joker/joker-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "blackwidow",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Black Widow",
+                        "fr": "Black Widow"
+                    },
+                    "prompt": "Photography of Black Widow in her black leather tactical suit",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/blackwidow/blackwidow-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/blackwidow/blackwidow-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/blackwidow/blackwidow-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/blackwidow/blackwidow-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "captainmarvel",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Captain Marvel",
+                        "fr": "Captain Marvel"
+                    },
+                    "prompt": "Photography of Captain Marvel in her red and blue suit with a gold star",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainmarvel/captainmarvel-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainmarvel/captainmarvel-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainmarvel/captainmarvel-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/superheros/captainmarvel/captainmarvel-male_2-1.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "jobs",
+            "name": {
+                "en": "Jobs",
+                "fr": "Métiers"
+            },
+            "prompt": "professional, determined",
+            "models": [
+                {
+                    "id": "firefighter",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Firefighter",
+                        "fr": "Pompier"
+                    },
+                    "prompt": "Photography of a fireman, a lot of equipment, whole uniform, with the fireman helmet",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/firefighter/firefighter-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/firefighter/firefighter-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/firefighter/firefighter-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/firefighter/firefighter-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "doctor",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Doctor",
+                        "fr": "Docteur"
+                    },
+                    "prompt": "Photography of a doctor in white lab coat, with a stethoscope around the neck",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/doctor/doctor-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/doctor/doctor-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/doctor/doctor-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/doctor/doctor-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "soldier",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Soldier",
+                        "fr": "Soldat"
+                    },
+                    "prompt": "Photography of a soldier in camouflage uniform, with a helmet, carrying a rifle",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/soldier/soldier-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/soldier/soldier-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/soldier/soldier-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/soldier/soldier-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "policeofficer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Police Officer",
+                        "fr": "Policier"
+                    },
+                    "prompt": "Photography of a police officer in uniform, with a badge and radio",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/policeofficer/policeofficer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/policeofficer/policeofficer-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/policeofficer/policeofficer-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/policeofficer/policeofficer-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "pilot",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Pilot",
+                        "fr": "Pilote d’avion"
+                    },
+                    "prompt": "Photography of an airplane pilot in uniform with pilot wings pin",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/pilot/pilot-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/pilot/pilot-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/pilot/pilot-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/pilot/pilot-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "chef",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Chef",
+                        "fr": "Chef cuisinier"
+                    },
+                    "prompt": "Photography of a chef in a white chef's coat and hat, holding a cooking utensil",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/chef/chef-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/chef/chef-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/chef/chef-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/chef/chef-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "mechanic",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Mechanic",
+                        "fr": "Garagiste"
+                    },
+                    "prompt": "Photography of a mechanic in coveralls with a wrench in hand, in a garage",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/mechanic/mechanic-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/mechanic/mechanic-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/mechanic/mechanic-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/mechanic/mechanic-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "baker",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Baker",
+                        "fr": "Boulanger"
+                    },
+                    "prompt": "Photography of a baker in an apron, holding a loaf of bread",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/baker/baker-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/baker/baker-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/baker/baker-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/baker/baker-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "teacher",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Teacher",
+                        "fr": "Enseignant"
+                    },
+                    "prompt": "Photography of a teacher in front of a blackboard, holding books",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/teacher/teacher-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/teacher/teacher-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/teacher/teacher-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/teacher/teacher-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "judge",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Judge",
+                        "fr": "Juge"
+                    },
+                    "prompt": "Photography of a judge in a robe, behind a judge bench",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/judge/judge-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/judge/judge-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/judge/judge-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/judge/judge-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "banker",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Banker",
+                        "fr": "Banquier"
+                    },
+                    "prompt": "Photography of a banker in a suit, with financial documents on a desk",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/banker/banker-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/banker/banker-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/banker/banker-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/banker/banker-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "scientist",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Lab Scientist",
+                        "fr": "Scientifique de labo"
+                    },
+                    "prompt": "Photography of a lab scientist in a lab coat, with test tubes and scientific equipment",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/scientist/scientist-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/scientist/scientist-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/scientist/scientist-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/scientist/scientist-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "farmer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Farmer",
+                        "fr": "Agriculteur"
+                    },
+                    "prompt": "Photography of a farmer in overalls, with a pitchfork, in a field",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/farmer/farmer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/farmer/farmer-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/farmer/farmer-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/jobs/farmer/farmer-male_2-1.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sports",
+            "name": {
+                "en": "Sports",
+                "fr": "Sports"
+            },
+            "prompt": "in the effort",
+            "models": [
+                {
+                    "id": "basketballplayer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Basketball Player",
+                        "fr": "Basketteur"
+                    },
+                    "prompt": "Photography of a basketball player in team jersey, dribbling with a ball",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/basketballplayer/basketballplayer-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/basketballplayer/basketballplayer-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/basketballplayer/basketballplayer-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/basketballplayer/basketballplayer-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "soccerplayer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Soccer Player",
+                        "fr": "Footballeur"
+                    },
+                    "prompt": "Photography of a soccer player in action, running with the ball",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/soccerplayer/soccerplayer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/soccerplayer/soccerplayer-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/soccerplayer/soccerplayer-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/soccerplayer/soccerplayer-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "rugbyplayer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Rugby Player",
+                        "fr": "Rugbyman"
+                    },
+                    "prompt": "Photography of a rugby player in team gear, holding a rugby ball",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/rugbyplayer/rugbyplayer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/rugbyplayer/rugbyplayer-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/rugbyplayer/rugbyplayer-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/rugbyplayer/rugbyplayer-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "fitnessenthusiast",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Fitness Enthusiast",
+                        "fr": "Pratiquant de fitness"
+                    },
+                    "prompt": "Photography of a fitness enthusiast in workout clothes, lifting weights",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/fitnessenthusiast/fitnessenthusiast-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/fitnessenthusiast/fitnessenthusiast-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/fitnessenthusiast/fitnessenthusiast-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/fitnessenthusiast/fitnessenthusiast-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "equestrian",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Equestrian",
+                        "fr": "Cavalier"
+                    },
+                    "prompt": "Photography of an equestrian in riding attire, on a horse",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/equestrian/equestrian-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/equestrian/equestrian-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/equestrian/equestrian-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/equestrian/equestrian-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "judoka",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Judoka",
+                        "fr": "Judoka"
+                    },
+                    "prompt": "Photography of a judoka in a judo gi, wearing a black belt",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/judoka/judoka-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/judoka/judoka-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/judoka/judoka-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/judoka/judoka-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "swimmer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Swimmer",
+                        "fr": "Nageur"
+                    },
+                    "prompt": "Photography of a swimmer in a swimming cap, in a pool",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/swimmer/swimmer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/swimmer/swimmer-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/swimmer/swimmer-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/swimmer/swimmer-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "americanfootballplayer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "American Football Player",
+                        "fr": "Joueur de football américain"
+                    },
+                    "prompt": "Photography of an American football player in full gear, holding a football",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/americanfootballplayer/americanfootballplayer-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/americanfootballplayer/americanfootballplayer-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/americanfootballplayer/americanfootballplayer-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/americanfootballplayer/americanfootballplayer-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "baseballplayer",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Baseball Player",
+                        "fr": "Joueur de baseball"
+                    },
+                    "prompt": "Photography of a baseball player in team uniform, swinging a baseball bat",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/baseballplayer/baseballplayer-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/baseballplayer/baseballplayer-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/baseballplayer/baseballplayer-male_1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/sports/baseballplayer/baseballplayer-male_2-0.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "places",
+            "name": {
+                "en": "Places",
+                "fr": "Lieux"
+            },
+            "prompt": "facing camera, beautiful landscape in the background",
+            "models": [
+                {
+                    "id": "eiffeltower",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Eiffel Tower",
+                        "fr": "Tour Eiffel"
+                    },
+                    "prompt": "Photography of a person standing in front of the Eiffel Tower in Paris",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/eiffeltower/eiffeltower-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/eiffeltower/eiffeltower-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/eiffeltower/eiffeltower-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/eiffeltower/eiffeltower-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "desert",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Desert",
+                        "fr": "Désert"
+                    },
+                    "prompt": "Photography of a person standing up in a vast desert landscape under a clear blue sky",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/desert/desert-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/desert/desert-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/desert/desert-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/desert/desert-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "antarctica",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Antarctica",
+                        "fr": "Antarctique"
+                    },
+                    "prompt": "Photography of a person dressed in heavy winter gear standing on the ice in Antarctica, with penguins in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/antarctica/antarctica-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/antarctica/antarctica-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/antarctica/antarctica-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/antarctica/antarctica-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "forest",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Forest",
+                        "fr": "Forêt"
+                    },
+                    "prompt": "Photography of an rambler facing camera, green forest path, sunlight filtering through the canopy above",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forest/forest-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forest/forest-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forest/forest-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forest/forest-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "beach",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Beach",
+                        "fr": "Plage"
+                    },
+                    "prompt": "Photography of a person relaxing on a sandy beach with the ocean waves in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/beach/beach-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/beach/beach-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/beach/beach-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/beach/beach-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "mountain",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Mountain",
+                        "fr": "Montagne"
+                    },
+                    "prompt": "Photography of a person standing on a mountain trail with a panoramic view of the mountain range",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/mountain/mountain-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/mountain/mountain-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/mountain/mountain-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/mountain/mountain-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "tajmahal",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Taj Mahal",
+                        "fr": "Taj Mahal"
+                    },
+                    "prompt": "Photography of a person with the Taj Mahal in background, with the iconic white marble structure in full view",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/tajmahal/tajmahal-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/tajmahal/tajmahal-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/tajmahal/tajmahal-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/tajmahal/tajmahal-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "colosseum",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Colosseum",
+                        "fr": "Colisée"
+                    },
+                    "prompt": "Photography of a person standing in front of the Colosseum in Rome, capturing the ancient architecture",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/colosseum/colosseum-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/colosseum/colosseum-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/colosseum/colosseum-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/colosseum/colosseum-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "versailles",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Versailles",
+                        "fr": "Versailles"
+                    },
+                    "prompt": "Photography of a person standing in front of the gardens of Versailles, with the palace in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/versailles/versailles-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/versailles/versailles-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/versailles/versailles-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/versailles/versailles-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "forbiddenCity",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Forbidden City",
+                        "fr": "Cité interdite"
+                    },
+                    "prompt": "Photography of a person standing in front of the Forbidden City in Beijing, with the historic red walls surrounding them",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forbiddenCity/forbiddenCity-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forbiddenCity/forbiddenCity-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forbiddenCity/forbiddenCity-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/forbiddenCity/forbiddenCity-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "newyork",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "New York",
+                        "fr": "New York"
+                    },
+                    "prompt": "Photography of a person standing in front of the Empire State Building in New York",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/newyork/newyork-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/newyork/newyork-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/newyork/newyork-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/newyork/newyork-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "disneyland",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Disneyland",
+                        "fr": "Disneyland"
+                    },
+                    "prompt": "Photography of a person at Disneyland, with the magical castle in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/disneyland/disneyland-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/disneyland/disneyland-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/disneyland/disneyland-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/places/disneyland/disneyland-male_2-1.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "creatures",
+            "name": {
+                "en": "Fantastic creatures",
+                "fr": "Créatures fantastiques"
+            },
+            "prompt": "mystical, mysterious, fantasy",
+            "models": [
+                {
+                    "id": "wizard",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Wizard",
+                        "fr": "Sorcier"
+                    },
+                    "prompt": "Photography of a wizard in a long, flowing robe, holding a magical staff, with mystical energies swirling around",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/wizard/wizard-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/wizard/wizard-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/wizard/wizard-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/wizard/wizard-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "elf",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Elf",
+                        "fr": "Elfe"
+                    },
+                    "prompt": "Photography of an elf with pointed ears in a forest setting, wearing elegant medieval clothing and a bow",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/elf/elf-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/elf/elf-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/elf/elf-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/elf/elf-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "cyborg",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Cyborg",
+                        "fr": "Cyborg"
+                    },
+                    "prompt": "Photography of a cyborg with a visible blend of human and robotic features, human face, in a futuristic setting",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/cyborg/cyborg-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/cyborg/cyborg-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/cyborg/cyborg-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/cyborg/cyborg-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "zombie",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Zombie",
+                        "fr": "Zombie"
+                    },
+                    "prompt": "Photography of a zombie in tattered clothes, in an advanced state of decomposition, very thin, bones visible, torn skin, lot of scars, wandering through an abandoned cityscape",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/zombie/zombie-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/zombie/zombie-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/zombie/zombie-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/zombie/zombie-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "dwarf",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Dwarf",
+                        "fr": "Nain"
+                    },
+                    "prompt": "Photography of a little dwarf with armored gear, wielding a large axe in a mountainous landscape",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/dwarf/dwarf-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/dwarf/dwarf-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/dwarf/dwarf-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/dwarf/dwarf-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "orc",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Orc",
+                        "fr": "Orc"
+                    },
+                    "prompt": "Photography of an orc in battle armor, lot of scars on the face, in a war-torn field, looking fierce, bloody face",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/orc/orc-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/orc/orc-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/orc/orc-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/orc/orc-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "mermaid",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Mermaid",
+                        "fr": "Sirène"
+                    },
+                    "prompt": "Photography of a mermaid sitting on a rock at sea, with her tail shimmering in the sunlight",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/mermaid/mermaid-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/mermaid/mermaid-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/mermaid/mermaid-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/mermaid/mermaid-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "angel",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Angel",
+                        "fr": "Ange"
+                    },
+                    "prompt": "Photography of an angel with glowing wings, in a serene sky or heavenly backdrop",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/angel/angel-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/angel/angel-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/angel/angel-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/angel/angel-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "demon",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Demon",
+                        "fr": "Démon"
+                    },
+                    "prompt": "Photography of a demon with fiery red eyes and dark, red skin, menacing features, hellish landscape",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/demon/demon-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/demon/demon-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/demon/demon-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/demon/demon-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "oni",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Oni",
+                        "fr": "Oni"
+                    },
+                    "prompt": "Photography of an oni with traditional Japanese demon mask and attire, against a backdrop of a haunted Japanese shrine",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/oni/oni-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/oni/oni-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/oni/oni-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/creatures/oni/oni-male_2-1.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "human",
+            "name": {
+                "en": "Human",
+                "fr": "Humains"
+            },
+            "prompt": "normal human, detailed skin",
+            "models": [
+                {
+                    "id": "baby",
+                    "gender": true,
+                    "age": false,
+                    "name": {
+                        "en": "Baby",
+                        "fr": "Bébé"
+                    },
+                    "prompt": "Photography of a little baby, 1 year old, chubby face, big cheeks, very young, colorful setting with toys around",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/baby/baby-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/baby/baby-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/baby/baby-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/baby/baby-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "child",
+                    "gender": true,
+                    "age": false,
+                    "name": {
+                        "en": "Child",
+                        "fr": "Enfant"
+                    },
+                    "prompt": "Photography of a joyful child, around 5 years old, very young, playing in a sunny park with colorful toys",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/child/child-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/child/child-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/child/child-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/child/child-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "elderly",
+                    "gender": true,
+                    "age": false,
+                    "name": {
+                        "en": "Elderly",
+                        "fr": "Vieux"
+                    },
+                    "prompt": "Photography of an elderly person walking in a peaceful garden, using a cane, with a gentle smile, 70 years old",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/elderly/elderly-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/elderly/elderly-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/elderly/elderly-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/elderly/elderly-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "man",
+                    "gender": false,
+                    "age": true,
+                    "name": {
+                        "en": "Man",
+                        "fr": "Homme"
+                    },
+                    "prompt": "Photography of a male individual, short hair, large jaw, very masculin, wearing man clothes",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/man/man-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/man/man-female_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "woman",
+                    "gender": false,
+                    "age": true,
+                    "name": {
+                        "en": "Woman",
+                        "fr": "Femme"
+                    },
+                    "prompt": "Photography of a female individual, long hair, lot of makeup, very feminine, wearing woman clothes",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/woman/woman-male_1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/woman/woman-male_2.webp"
+                    ]
+                },
+                {
+                    "id": "teenager",
+                    "gender": true,
+                    "age": false,
+                    "name": {
+                        "en": "Teenager",
+                        "fr": "Adolescent"
+                    },
+                    "prompt": "Photography of a teenager with acne, wearing casual, trendy clothes, 15 years old",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/teenager/teenager-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/teenager/teenager-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/teenager/teenager-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/teenager/teenager-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "thirtysomething",
+                    "gender": true,
+                    "age": false,
+                    "name": {
+                        "en": "Thirtysomething",
+                        "fr": "Trentenaire"
+                    },
+                    "prompt": "Photography of a thirtysomething individual in business casual attire, in a modern office environment, 35 years old",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/thirtysomething/thirtysomething-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/thirtysomething/thirtysomething-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/thirtysomething/thirtysomething-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/thirtysomething/thirtysomething-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "punk",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Punk",
+                        "fr": "Punk"
+                    },
+                    "prompt": "Photography of a punk with multiple piercings and tattoos, in an urban, graffiti-filled alley, wearing a leather jacket",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/punk/punk-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/punk/punk-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/punk/punk-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/punk/punk-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "hipster",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Hipster",
+                        "fr": "Hipster"
+                    },
+                    "prompt": "Photography of a hipster with glasses, sipping coffee in a trendy café, surrounded by vintage decor",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/hipster/hipster-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/hipster/hipster-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/hipster/hipster-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/human/hipster/hipster-male_2-0.webp"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "historical",
+            "name": {
+                "en": "Historical period",
+                "fr": "Période historique"
+            },
+            "prompt": "proud",
+            "models": [
+                {
+                    "id": "viking",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Viking",
+                        "fr": "Viking"
+                    },
+                    "prompt": "Photography of a Viking holding a shield and axe, standing on a rocky shoreline with a longship in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/viking/viking-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/viking/viking-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/viking/viking-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/viking/viking-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "ninja",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Ninja",
+                        "fr": "Ninja"
+                    },
+                    "prompt": "Photography of a ninja with a visible face, wearing traditional black ninja attire, holding a katana, poised in a defensive stance in a bamboo forest",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/ninja/ninja-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/ninja/ninja-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/ninja/ninja-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/ninja/ninja-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "knight",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Knight in Armor",
+                        "fr": "Chevalier en armure"
+                    },
+                    "prompt": "Photography of a knight in shining armor, mounted on a horse, in front of a medieval castle",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/knight/knight-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/knight/knight-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/knight/knight-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/knight/knight-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "princess",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Princess",
+                        "fr": "Princesse"
+                    },
+                    "prompt": "Photography of a princess in a flowing gown, walking through the lush gardens of an ancient castle",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/princess/princess-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/princess/princess-female_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "renaissanceking",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Renaissance King",
+                        "fr": "Roi à la renaissance"
+                    },
+                    "prompt": "Photography of a Renaissance king in royal robes, with a crown, holding a scepter, standing in a grand palace hall",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/renaissanceking/renaissanceking-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/renaissanceking/renaissanceking-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/renaissanceking/renaissanceking-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/renaissanceking/renaissanceking-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "medievalpeasant",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Medieval Peasant",
+                        "fr": "Paysan du moyen-âge"
+                    },
+                    "prompt": "Photography of a medieval peasant in simple cloth, working in the fields with a village in the distance",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/medievalpeasant/medievalpeasant-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/medievalpeasant/medievalpeasant-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/medievalpeasant/medievalpeasant-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/medievalpeasant/medievalpeasant-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "cowboy",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Cowboy",
+                        "fr": "Cowboy"
+                    },
+                    "prompt": "Photography of a cowboy with a wide-brimmed hat, riding a horse across a dusty American prairie",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/cowboy/cowboy-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/cowboy/cowboy-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/cowboy/cowboy-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/cowboy/cowboy-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "nativeamerican",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Native American",
+                        "fr": "Indien"
+                    },
+                    "prompt": "Photography of a Native American in traditional attire, with feathers, standing on a vast plain with the sunset behind",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/nativeamerican/nativeamerican-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/nativeamerican/nativeamerican-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/nativeamerican/nativeamerican-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/nativeamerican/nativeamerican-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "hippie",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Hippie",
+                        "fr": "Hippie des années 1960"
+                    },
+                    "prompt": "Photography of a 1960s hippie in colorful clothing, at a music festival, with peace signs and flowers",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/hippie/hippie-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/hippie/hippie-female_2-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/hippie/hippie-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/hippie/hippie-male_2-0.webp"
+                    ]
+                },
+                {
+                    "id": "gladiator",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Roman Gladiator",
+                        "fr": "Gladiateur romain"
+                    },
+                    "prompt": "Photography of a Roman gladiator in arena armor, ready to fight, with the Colosseum crowd in the background",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/gladiator/gladiator-female_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/gladiator/gladiator-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/gladiator/gladiator-male_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/gladiator/gladiator-male_2-1.webp"
+                    ]
+                },
+                {
+                    "id": "pharaoh",
+                    "gender": true,
+                    "age": true,
+                    "name": {
+                        "en": "Egyptian Pharaoh",
+                        "fr": "Pharaon égyptien"
+                    },
+                    "prompt": "Photography of an Egyptian pharaoh in ornate headdress and robes, standing before the pyramids of Giza",
+                    "images": [
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/pharaoh/pharaoh-female_1-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/pharaoh/pharaoh-female_2-0.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/pharaoh/pharaoh-male_1-1.webp",
+                        "https://storage.googleapis.com/photogenerator-298cf.appspot.com/illustrations/add88086-8227-41f4-a370-e2c0a28d46bc/historical/pharaoh/pharaoh-male_2-1.webp"
+                    ]
+                }
+            ]
+        }
+    ]
+}

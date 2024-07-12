@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run (debug)",
+            "request": "launch",
+            "type": "dart",
+            "program": "./lib/main.dart",
+            "args": []
+        },
+        {
+            "name": "Run (release)",
+            "request": "launch",
+            "type": "dart",
+            "program": "./lib/main.dart",
+            "args": [
+                "--release"
+            ]
+        },
+        {
+            "name": "Run (profile)",
+            "request": "launch",
+            "type": "dart",
+            "program": "./lib/main.dart",
+            "args": [
+                "--profile"
+            ]
+        },
+        {
+            "name": "Run all Tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "./test/",
+            "args": []
+        }
+    ],
+}
