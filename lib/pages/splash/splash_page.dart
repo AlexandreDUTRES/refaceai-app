@@ -17,20 +17,39 @@ class SplashPage extends StatelessWidget {
     _appTheme = AppThemeV2.of(context);
 
     return PageLayout(
-      
-      backgroundGradient: _appTheme.palette.primaryGradient,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      removeTopBannerPadding: true,
+      backgroundColor: _appTheme.palette.backgroundColor,
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         Future.delayed(Duration.zero)
             .then((_) async => await bloc.afterFirstBuild(context));
 
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomSvgs.logo__logo.build(
-              size: 120.sp,
-              color: _appTheme.palette.textColor,
+        return Container(
+          width: double.infinity,
+          height: double.infinity,
+          padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+          child: LayoutBuilder(
+            builder: (_, constraints) => Stack(
+              children: [
+                Container(
+                  width: constraints.maxWidth,
+                  height: constraints.maxHeight,
+                  child: CustomPngs.others__splash_background
+                      .build(fit: BoxFit.cover),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: CustomPngs.logo__logo_shadowed.build(
+                    width: 150.sp,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         );
       },
     );

@@ -41,10 +41,13 @@ class ModelPage extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.topCenter,
-                child: PageTopBar(
-                  backButton: true,
-                  title: model
-                      .name(getGlobalLocale(GlobalNavigator().currentContext)),
+                child: Padding(
+                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
+                  child: PageTopBar(
+                    backButton: true,
+                    title: model.name(
+                        getGlobalLocale(GlobalNavigator().currentContext)),
+                  ),
                 ),
               ),
               Container(
@@ -115,29 +118,34 @@ class ModelPage extends StatelessWidget {
   }
 
   Widget _buildPhotoButton() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.sp),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minWidth: double.infinity),
-        child: ElevatedButton(
-          onPressed: () async => await bloc.openGalleryPage(),
-          style: _appTheme.buttons.mainElevated.style,
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.sp),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.photo_library_outlined,
-                  size: 20.sp,
-                  color: _appTheme.palette.textColor,
-                ),
-                Padding(padding: EdgeInsets.only(left: 8.sp)),
-                Text(tr("pages.model.btn_select_photo")),
-              ],
+    return GestureDetector(
+      onTap: () async => await bloc.openGalleryPage(),
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 16.sp),
+        padding: EdgeInsets.symmetric(
+          vertical: 15.sp,
+          horizontal: 50.sp,
+        ),
+        decoration: BoxDecoration(
+          gradient: _appTheme.palette.primaryGradient,
+          borderRadius: BorderRadius.circular(12.sp),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.photo_library_outlined,
+              size: 25.sp,
+              color: _appTheme.palette.textColor,
             ),
-          ),
+            Padding(padding: EdgeInsets.only(left: 8.sp)),
+            Text(
+              tr("pages.model.btn_select_photo"),
+              style: _appTheme.fonts.xsTitle.bold.style,
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
@@ -149,9 +157,6 @@ class ModelPage extends StatelessWidget {
       height: constraints.maxHeight,
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-          ),
           _buildModelImage(model),
           Padding(padding: EdgeInsets.only(top: 25.sp)),
           _buildInfoText(
@@ -182,21 +187,29 @@ class ModelPage extends StatelessWidget {
 
     return PageLayout(
       backgroundColor: _appTheme.palette.backgroundColor,
-      enableScroll: false,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      removeTopBannerPadding: true,
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<ModelPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return Container();
 
-            return PreloadPageView.builder(
-              controller: bloc.preloadPageController,
-              itemCount: bloc.models.length,
-              preloadPagesCount: min(3, bloc.models.length),
-              itemBuilder: (context, i) {
-                return _buildModelPage(constraints, bloc.models[i]);
-              },
-              onPageChanged: (i) => bloc.setIndex(i),
+            return Padding(
+              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+              child: PreloadPageView.builder(
+                controller: bloc.preloadPageController,
+                itemCount: bloc.models.length,
+                preloadPagesCount: min(3, bloc.models.length),
+                itemBuilder: (context, i) {
+                  return _buildModelPage(constraints, bloc.models[i]);
+                },
+                onPageChanged: (i) => bloc.setIndex(i),
+              ),
             );
           },
         );

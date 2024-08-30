@@ -62,29 +62,45 @@ class ModelPageBloc extends Bloc<ModelPageData> {
   }
 
   Future<void> _generate(String filePath) async {
-    await _showAdWarningPage();
-    await GlobalLoader.showLoadingPage();
+    await GlobalLoader.showOverlayLoader();
+    final String status = await Api.getUserGenerationStatus(
+      blocManager.userBloc.userId!,
+    );
+    GlobalLoader.hideOverlayLoader();
 
-    RewardedAd? ad = await AdsHandler.getRewardedAd();
-    if (ad == null) {
-      await GlobalLoader.hideLoadingPage();
-      return Common.showSnackbar(tr("pages.model.snackbar_no_ad"));
+    final String advertId = UuidV4().generate();
+    RewardedAd? ad;
+
+    if (status == 'no_ad') {
+      await GlobalLoader.showLoadingPage();
+    } else {
+      if (!SharedPreferencesStorage.getAdWarning()) {
+        await _showAdWarningPage();
+      }
+
+      await GlobalLoader.showLoadingPage();
+      // get google ads rewarded ad
+      ad = await AdsHandler.getRewardedAd();
+      if (ad == null) {
+        await GlobalLoader.hideLoadingPage();
+        return Common.showSnackbar(tr("pages.model.snackbar_no_ad"));
+      }
     }
-
-    String advertId = UuidV4().generate();
 
     try {
       String generationId = await Api.startGeneration(
         blocManager.userBloc.userId!,
         filePath: filePath,
         promptId: _models[_index].id,
-        advertId: advertId,
+        advertId: ad != null ? advertId : null,
       );
 
-      await AdsHandler.showAd(
-        ad: ad,
-        advertId: advertId,
-      );
+      if (ad != null) {
+        await AdsHandler.showAd(
+          ad: ad,
+          advertId: advertId,
+        );
+      }
 
       Generation generation = await _waitGeneration(generationId);
       await GlobalLoader.hideLoadingPage();
@@ -121,7 +137,6 @@ class ModelPageBloc extends Bloc<ModelPageData> {
   }
 
   static Future<void> _showAdWarningPage() async {
-    if (SharedPreferencesStorage.getAdWarning()) return;
     Completer<void> c = Completer<void>();
     await GlobalNavigator().navigate(
       "/AdWarningPage",

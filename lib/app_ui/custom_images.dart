@@ -84,6 +84,7 @@ enum CustomSvgs {
 }
 
 enum CustomPngs {
+  logo__logo_shadowed,
   onboardings__onboarding_1,
   onboardings__onboarding_2,
   onboardings__onboarding_3,
@@ -96,7 +97,8 @@ enum CustomPngs {
   others__icon_facebook,
   others__icon_instagram,
   others__icon_share,
-  others__icon_whatsapp;
+  others__icon_whatsapp,
+  others__splash_background;
 
   static String _getFilePackagePath(String name) {
     return "assets/images/$name.png";

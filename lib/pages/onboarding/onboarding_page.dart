@@ -109,9 +109,13 @@ class OnboardingPage extends StatelessWidget {
     _appTheme = AppThemeV2.of(context);
 
     return PageLayout(
-      
       backgroundColor: _appTheme.palette.backgroundColor,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<OnboardingPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
@@ -119,9 +123,7 @@ class OnboardingPage extends StatelessWidget {
 
             return Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
+                Padding(padding: EdgeInsets.only(top: topPadding)),
                 Expanded(child: _buildImage()),
                 _buildTitleText(),
                 Padding(padding: EdgeInsets.only(top: 4.sp)),
@@ -132,7 +134,7 @@ class OnboardingPage extends StatelessWidget {
                   Padding(padding: EdgeInsets.only(top: 15.sp)),
                   _buildSubBtnText(),
                 ],
-                Padding(padding: EdgeInsets.only(top: 15.sp)),
+                Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
               ],
             );
           },

@@ -10,7 +10,6 @@ import 'package:photogenerator/models/model_category.dart';
 import 'package:photogenerator/pages/home/models/models_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/ui/bloc_manager/models_builder.dart';
-import 'package:photogenerator/ui/widgets/main_scroller.dart';
 import 'package:photogenerator/ui/widgets/model_preview.dart';
 import 'package:photogenerator/ui/widgets/static_grid.dart';
 import 'package:photogenerator/utils/Common.dart';
@@ -158,14 +157,10 @@ class ModelsPage extends StatelessWidget {
       builder: (context, snapshot) {
         if (!snapshot.hasData) return Container();
 
-        return LayoutBuilder(
-          builder: (context, constraints) => MainScroller(
-            parentHeight: constraints.maxHeight,
+        return SizedBox.expand(
+          child: SingleChildScrollView(
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
                 Padding(padding: EdgeInsets.only(top: 20.sp)),
                 _buildIconContainer(),
                 Padding(padding: EdgeInsets.only(top: 10.sp)),

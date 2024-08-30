@@ -107,28 +107,36 @@ class GalleryPage extends StatelessWidget {
     bloc = BlocProvider.of<GalleryPageBloc>(context);
     _appTheme = AppThemeV2.of(context);
 
+    final ScrollController customScrollController = ScrollController();
+
     return PageLayout(
-      
-      enableScroll: true,
       backgroundColor: _appTheme.palette.backgroundColor,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<GalleryPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return Container();
 
-            return Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
-                PageTopBar(
-                  backButton: true,
-                  title: tr("pages.gallery.txt_title"),
-                ),
-                _buildList(),
-                Padding(padding: EdgeInsets.only(top: 15.sp)),
-              ],
+            return SingleChildScrollView(
+              controller: customScrollController,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: topPadding),
+                  ),
+                  PageTopBar(
+                    backButton: true,
+                    title: tr("pages.gallery.txt_title"),
+                  ),
+                  _buildList(),
+                  Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
+                ],
+              ),
             );
           },
         );

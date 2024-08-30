@@ -146,22 +146,31 @@ class HomePage extends StatelessWidget {
           canPop: bloc.canPop,
           onPopInvoked: bloc.onPopInvoked,
           bottomStickyWidget: _buildNavBar(snapshot),
-          bodyBuilder: (BuildContext context, BoxConstraints constraints) {
-            return PreloadPageView.builder(
-              controller: bloc.preloadPageController,
-              itemCount: HomeNavigationState.values.length,
-              preloadPagesCount: HomeNavigationState.values.length,
-              itemBuilder: (context, i) {
-                HomeNavigationState state = HomeNavigationState.values[i];
-                switch (state) {
-                  case HomeNavigationState.models:
-                    return modelsProvider;
-                  case HomeNavigationState.generations:
-                    return generationsProvider;
-                }
-              },
-              onPageChanged: (i) =>
-                  bloc.setNavigationState(HomeNavigationState.values[i]),
+          bodyBuilder: (
+            BuildContext context,
+            BoxConstraints constraints,
+            double topPadding,
+            double bottomPadding,
+          ) {
+            Future.delayed(Duration.zero).then((_) => bloc.afterFirstBuild());
+            return Padding(
+              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+              child: PreloadPageView.builder(
+                controller: bloc.preloadPageController,
+                itemCount: HomeNavigationState.values.length,
+                preloadPagesCount: HomeNavigationState.values.length,
+                itemBuilder: (context, i) {
+                  HomeNavigationState state = HomeNavigationState.values[i];
+                  switch (state) {
+                    case HomeNavigationState.models:
+                      return modelsProvider;
+                    case HomeNavigationState.generations:
+                      return generationsProvider;
+                  }
+                },
+                onPageChanged: (i) =>
+                    bloc.setNavigationState(HomeNavigationState.values[i]),
+              ),
             );
           },
         );

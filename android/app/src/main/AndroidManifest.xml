@@ -30,7 +30,8 @@
     </intent>
   </queries>
   <application tools:replace="android:label" android:label="@string/APP_NAME"
-    android:icon="@mipmap/ic_launcher" android:allowBackup="false">
+    android:icon="@mipmap/ic_launcher"
+    android:allowBackup="false">
     <meta-data
       android:name="com.google.android.gms.ads.APPLICATION_ID"
       android:value="@string/AD_MOB_ANDROID_ID" />
@@ -78,5 +79,8 @@
         android:resource="@xml/filepaths" />
     </provider>
 
+    <meta-data
+      android:name="com.google.firebase.messaging.default_notification_icon"
+      android:resource="@drawable/ic_notification" />
   </application>
 </manifest>

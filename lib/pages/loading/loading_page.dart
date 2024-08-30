@@ -17,10 +17,14 @@ class LoadingPage extends StatelessWidget {
     _appTheme = AppThemeV2.of(context);
 
     return PageLayout(
-      
       backgroundColor: _appTheme.palette.backgroundColor,
       canPop: false,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<LoadingPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
@@ -29,6 +33,7 @@ class LoadingPage extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Padding(padding: EdgeInsets.only(top: topPadding)),
                 CustomLotties.animated__loader.build(
                   width: 250.sp,
                   repeat: true,
@@ -45,7 +50,7 @@ class LoadingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 30.sp)),
+                Padding(padding: EdgeInsets.only(top: bottomPadding + 30.sp)),
               ],
             );
           },

@@ -92,8 +92,12 @@ class PhotoPage extends StatelessWidget {
 
     return PageLayout(
       backgroundColor: _appTheme.palette.backgroundColor,
-      enableScroll: false,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<PhotoPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
@@ -101,9 +105,7 @@ class PhotoPage extends StatelessWidget {
 
             return Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
+                Padding(padding: EdgeInsets.only(top: topPadding)),
                 Expanded(
                   child: Container(
                     color: Colors.black,
@@ -116,6 +118,7 @@ class PhotoPage extends StatelessWidget {
                 if (snapshot.data!.faceDetected == true) _buildBottomBar(),
                 if (snapshot.data!.faceDetected == false)
                   _buildNoFaceContainer(),
+                Padding(padding: EdgeInsets.only(top: bottomPadding)),
               ],
             );
           },

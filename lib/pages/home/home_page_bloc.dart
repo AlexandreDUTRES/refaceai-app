@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photogenerator/bloc_utils/bloc.dart';
+import 'package:photogenerator/functional/FcmHandler.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/models/global_app_data.dart';
 import 'package:photogenerator/models/home_navigation_state.dart';
@@ -21,6 +22,12 @@ class HomePageBloc extends Bloc<HomePageData> {
   }
 
   bool get canPop => _navHistory.length == 1;
+
+  Future<void> afterFirstBuild() async {
+    await super.singleExecutionTask('after_build', () async {
+      await FcmHandler.interactWithInitialMessage();
+    });
+  }
 
   @override
   void dispose() {

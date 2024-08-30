@@ -68,11 +68,20 @@ class Api {
     );
   }
 
+  static Future<String> getUserGenerationStatus(String userId) async {
+    HttpResponse res = await HttpProvider.sendHttpRequest(
+      method: RequestMethod.get,
+      host: Globals.apiUrl,
+      url: "/api/v1/generations/user/$userId/status",
+    );
+    return res.body["status"];
+  }
+
   static Future<String> startGeneration(
     String userId, {
     required String filePath,
     required String promptId,
-    required String advertId,
+    required String? advertId,
   }) async {
     HttpResponse res = await HttpProvider.sendHttpRequest(
       method: RequestMethod.post,
@@ -82,7 +91,7 @@ class Api {
         "userId": userId,
         "image": await MultipartFile.fromFile(filePath),
         "promptId": promptId,
-        "advertId": advertId,
+        if (advertId != null) "advertId": advertId,
       }),
     );
     return res.body["id"];

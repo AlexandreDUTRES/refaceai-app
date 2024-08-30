@@ -78,7 +78,12 @@ class AdWarningPage extends StatelessWidget {
 
     return PageLayout(
       backgroundColor: _appTheme.palette.backgroundColor,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<AdWarningPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
@@ -86,9 +91,7 @@ class AdWarningPage extends StatelessWidget {
 
             return Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
+                Padding(padding: EdgeInsets.only(top: topPadding)),
                 Expanded(child: Container()),
                 _buildImage(),
                 Padding(padding: EdgeInsets.only(top: 40.sp)),
@@ -97,7 +100,7 @@ class AdWarningPage extends StatelessWidget {
                 _buildDescriptionText(),
                 Expanded(child: Container()),
                 _buildButton(),
-                Padding(padding: EdgeInsets.only(top: 15.sp)),
+                Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
               ],
             );
           },

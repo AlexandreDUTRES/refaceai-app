@@ -4,6 +4,7 @@ import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/bloc_utils/bloc.dart';
 import 'package:photogenerator/functional/AdsHandler.dart';
+import 'package:photogenerator/functional/FcmHandler.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
 import 'package:photogenerator/main.dart';
 import 'package:photogenerator/storage_utils/shared_preferences_storage.dart';
@@ -27,6 +28,7 @@ class SplashPageBloc extends Bloc<SplashPageData> {
 
     try {
       await Future.wait([
+        FcmHandler.requestNotificationPermission(),
         CustomImages.precacheImages(context),
         blocManager.userBloc.initializeUserId(),
         blocManager.galleryBloc.initializeData(),

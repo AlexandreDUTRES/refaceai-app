@@ -91,29 +91,34 @@ class GenerationPage extends StatelessWidget {
   }
 
   Widget _buildPhotoButton() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.sp),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minWidth: double.infinity),
-        child: ElevatedButton(
-          onPressed: () async => await bloc.share(),
-          style: _appTheme.buttons.mainElevated.style,
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.sp),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.share,
-                  size: 20.sp,
-                  color: _appTheme.palette.textColor,
-                ),
-                Padding(padding: EdgeInsets.only(left: 8.sp)),
-                Text(tr("globals.share")),
-              ],
+    return GestureDetector(
+      onTap: () async => await bloc.share(),
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 16.sp),
+        padding: EdgeInsets.symmetric(
+          vertical: 15.sp,
+          horizontal: 50.sp,
+        ),
+        decoration: BoxDecoration(
+          gradient: _appTheme.palette.primaryGradient,
+          borderRadius: BorderRadius.circular(12.sp),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.share,
+              size: 25.sp,
+              color: _appTheme.palette.textColor,
             ),
-          ),
+            Padding(padding: EdgeInsets.only(left: 8.sp)),
+            Text(
+              tr("globals.share"),
+              style: _appTheme.fonts.xsTitle.bold.style,
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
@@ -150,9 +155,6 @@ class GenerationPage extends StatelessWidget {
       height: constraints.maxHeight,
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-          ),
           PageTopBar(
             backButton: true,
             title: tr("globals.back"),
@@ -177,27 +179,34 @@ class GenerationPage extends StatelessWidget {
     _appTheme = AppThemeV2.of(context);
 
     return PageLayout(
-      enableScroll: false,
       backgroundColor: _appTheme.palette.backgroundColor,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<GenerationPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return Container();
 
-            return PreloadPageView.builder(
-              controller: bloc.preloadPageController,
-              itemCount: bloc.generations.length,
-              preloadPagesCount: min(3, bloc.generations.length),
-              itemBuilder: (context, i) {
-                return _buildGenerationPage(
-                  constraints: constraints,
-                  snapshot: snapshot,
-                  generation: bloc.generations[i],
-                  index: i,
-                );
-              },
-              onPageChanged: (i) => bloc.setIndex(i),
+            return Padding(
+              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+              child: PreloadPageView.builder(
+                controller: bloc.preloadPageController,
+                itemCount: bloc.generations.length,
+                preloadPagesCount: min(3, bloc.generations.length),
+                itemBuilder: (context, i) {
+                  return _buildGenerationPage(
+                    constraints: constraints,
+                    snapshot: snapshot,
+                    generation: bloc.generations[i],
+                    index: i,
+                  );
+                },
+                onPageChanged: (i) => bloc.setIndex(i),
+              ),
             );
           },
         );

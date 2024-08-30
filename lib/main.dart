@@ -27,7 +27,7 @@ import 'firebase_options.dart';
 final BlocManager blocManager = BlocManager();
 
 final ThemePalette _themePalette = ThemePalette(
-  primaryColor: Color(0xff0882ff),
+  primaryColor: Color(0xffff00ff),
   secondaryColor: Color(0xff7c8292),
   textColor: Color(0xffffffff),
   borderColor: Color(0xff26272c),
@@ -35,7 +35,7 @@ final ThemePalette _themePalette = ThemePalette(
   primaryGradient: LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
-    colors: [Color(0xff3399ff), Color(0xff0073e6)],
+    colors: [Color(0xffff00ff), Color(0xffb300b3)],
   ),
 );
 

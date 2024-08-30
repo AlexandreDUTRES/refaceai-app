@@ -89,9 +89,12 @@ class CameraPage extends StatelessWidget {
 
     return PageLayout(
       backgroundColor: _appTheme.palette.backgroundColor,
-      
-      enableScroll: false,
-      bodyBuilder: (BuildContext context, BoxConstraints constraints) {
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
         return StreamBuilder<CameraPageData>(
           stream: bloc.stream,
           builder: (context, snapshot) {
@@ -99,9 +102,7 @@ class CameraPage extends StatelessWidget {
 
             return Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: SizerHandler.statusBarHeight),
-                ),
+                Padding(padding: EdgeInsets.only(top: topPadding)),
                 Expanded(
                   child: snapshot.data!.cameraState == CameraState.active
                       ? _buildCameraView()
@@ -110,6 +111,7 @@ class CameraPage extends StatelessWidget {
                         ),
                 ),
                 _buildBottomButton(),
+                Padding(padding: EdgeInsets.only(top: bottomPadding)),
               ],
             );
           },
