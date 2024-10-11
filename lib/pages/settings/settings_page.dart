@@ -84,76 +84,70 @@ class SettingsPage extends StatelessWidget {
 
     final ScrollController customScrollController = ScrollController();
 
-    return StreamBuilder<SettingsPageData>(
-      stream: bloc.stream,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return Container();
-        return PageLayout(
-          mainScrollController: customScrollController,
-          backgroundColor: _appTheme.palette.backgroundColor,
-          bodyBuilder: (
-            BuildContext context,
-            BoxConstraints constraints,
-            double topPadding,
-            double bottomPadding,
-          ) {
-            return SingleChildScrollView(
-              controller: customScrollController,
-              child: Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: topPadding)),
-                  PageTopBar(
-                    backButton: false,
-                    title: tr("pages.settings.txt_title"),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 10.sp)),
-                  _buildSectionTitle(
-                    tr("pages.settings.txt_account"),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 10.sp)),
-                  _buildButton(
-                    iconData: Icons.delete_outline,
-                    title: tr("pages.settings.txt_account_delete"),
-                    onTap: () async => await bloc.openDeleteUserModal(),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20.sp)),
-                  _buildSectionTitle(
-                    tr("pages.settings.txt_about"),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 10.sp)),
-                  _buildButton(
-                    iconData: Icons.help_outline,
-                    title: tr("pages.settings.txt_about_help"),
-                    onTap: () async => await bloc.startOnboardingTour(),
-                  ),
-                  _buildButton(
-                    iconData: Icons.mail_outline,
-                    title: tr("pages.settings.txt_about_contact"),
-                    text: "madproject.corp@gmail.com",
-                    onTap: () async => await bloc.contactUs(),
-                  ),
-                  _buildButton(
-                    iconData: Icons.gavel_rounded,
-                    title: tr("pages.settings.txt_about_terms"),
-                    onTap: () async => await bloc.openTerms(),
-                  ),
-                  _buildButton(
-                    iconData: Icons.policy_outlined,
-                    title: tr("pages.settings.txt_about_policy"),
-                    onTap: () async => await bloc.openPrivacy(),
-                  ),
-                  _buildButton(
-                    iconData: Icons.radio_button_off,
-                    title: Globals.appName,
-                    text: Globals.appVersion,
-                    subText: blocManager.userBloc.userId!,
-                    onTap: () => {},
-                  ),
-                  Padding(padding: EdgeInsets.only(top: bottomPadding)),
-                ],
+    return PageLayout(
+      mainScrollController: customScrollController,
+      backgroundColor: _appTheme.palette.backgroundColor,
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
+        return SingleChildScrollView(
+          controller: customScrollController,
+          child: Column(
+            children: [
+              Padding(padding: EdgeInsets.only(top: topPadding)),
+              PageTopBar(
+                backButton: false,
+                title: tr("pages.settings.txt_title"),
               ),
-            );
-          },
+              Padding(padding: EdgeInsets.only(top: 10.sp)),
+              _buildSectionTitle(
+                tr("pages.settings.txt_account"),
+              ),
+              Padding(padding: EdgeInsets.only(top: 10.sp)),
+              _buildButton(
+                iconData: Icons.delete_outline,
+                title: tr("pages.settings.txt_account_delete"),
+                onTap: () async => await bloc.openDeleteUserModal(),
+              ),
+              Padding(padding: EdgeInsets.only(top: 20.sp)),
+              _buildSectionTitle(
+                tr("pages.settings.txt_about"),
+              ),
+              Padding(padding: EdgeInsets.only(top: 10.sp)),
+              _buildButton(
+                iconData: Icons.help_outline,
+                title: tr("pages.settings.txt_about_help"),
+                onTap: () async => await bloc.startOnboardingTour(),
+              ),
+              _buildButton(
+                iconData: Icons.mail_outline,
+                title: tr("pages.settings.txt_about_contact"),
+                text: "madproject.corp@gmail.com",
+                onTap: () async => await bloc.contactUs(),
+              ),
+              _buildButton(
+                iconData: Icons.gavel_rounded,
+                title: tr("pages.settings.txt_about_terms"),
+                onTap: () async => await bloc.openTerms(),
+              ),
+              _buildButton(
+                iconData: Icons.policy_outlined,
+                title: tr("pages.settings.txt_about_policy"),
+                onTap: () async => await bloc.openPrivacy(),
+              ),
+              _buildButton(
+                iconData: Icons.radio_button_off,
+                title: Globals.appName,
+                text: Globals.appVersion,
+                subText: blocManager.userBloc.userId!,
+                onTap: () => {},
+              ),
+              Padding(padding: EdgeInsets.only(top: bottomPadding)),
+            ],
+          ),
         );
       },
     );

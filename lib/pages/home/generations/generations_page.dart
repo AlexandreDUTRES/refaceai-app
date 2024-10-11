@@ -93,36 +93,28 @@ class GenerationsPage extends StatelessWidget {
     bloc = BlocProvider.of<GenerationsPageBloc>(context);
     _appTheme = AppThemeV2.of(context);
 
-    return StreamBuilder<GenerationsPageData>(
-      stream: bloc.stream,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return Container();
-
-        return SizedBox.expand(
-          child: CustomScrollView(
-            physics: const ClampingScrollPhysics(),
-            slivers: [
-              SliverToBoxAdapter(
-                child: PageTopBar(
-                  backButton: false,
-                  title: tr("pages.home.generations.txt_title"),
-                ),
-              ),
-              SliverPadding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
-                sliver: GenerationsBuilder(
-                  (generations) => generations.isNotEmpty
-                      ? _buildGenerationsList(generations)
-                      : _buildNoImagesText(),
-                  placeHolder: SliverToBoxAdapter(),
-                ),
-              ),
-              SliverPadding(padding: EdgeInsets.only(top: 15.sp)),
-            ],
+    return SizedBox.expand(
+      child: CustomScrollView(
+        physics: const ClampingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: PageTopBar(
+              backButton: false,
+              title: tr("pages.home.generations.txt_title"),
+            ),
           ),
-        );
-      },
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
+            sliver: GenerationsBuilder(
+              (generations) => generations.isNotEmpty
+                  ? _buildGenerationsList(generations)
+                  : _buildNoImagesText(),
+              placeHolder: SliverToBoxAdapter(),
+            ),
+          ),
+          SliverPadding(padding: EdgeInsets.only(top: 15.sp)),
+        ],
+      ),
     );
   }
 }

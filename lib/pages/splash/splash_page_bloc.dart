@@ -24,6 +24,7 @@ class SplashPageBloc extends Bloc<SplashPageData> {
 
   Future<void> _compute(BuildContext context) async {
     AdsHandler.getRewardedAd();
+    AdsHandler.getInterstitialAd();
     blocManager.initializeAllBlocs();
 
     try {

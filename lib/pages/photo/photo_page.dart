@@ -98,30 +98,31 @@ class PhotoPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<PhotoPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: topPadding)),
-                Expanded(
-                  child: Container(
-                    color: Colors.black,
-                    child: Image.file(
-                      bloc.file,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+        return Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: topPadding)),
+            Expanded(
+              child: Container(
+                color: Colors.black,
+                child: Image.file(
+                  bloc.file,
+                  fit: BoxFit.contain,
                 ),
-                if (snapshot.data!.faceDetected == true) _buildBottomBar(),
-                if (snapshot.data!.faceDetected == false)
-                  _buildNoFaceContainer(),
-                Padding(padding: EdgeInsets.only(top: bottomPadding)),
-              ],
-            );
-          },
+              ),
+            ),
+            StreamBuilder<PhotoPageData>(
+              stream: bloc.stream,
+              builder: (_, snapshot) {
+                if (snapshot.data?.faceDetected == null) return Container();
+                if (snapshot.data!.faceDetected!) {
+                  return _buildBottomBar();
+                } else {
+                  return _buildNoFaceContainer();
+                }
+              },
+            ),
+            Padding(padding: EdgeInsets.only(top: bottomPadding)),
+          ],
         );
       },
     );

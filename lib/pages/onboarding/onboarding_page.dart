@@ -116,28 +116,21 @@ class OnboardingPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<OnboardingPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: topPadding)),
-                Expanded(child: _buildImage()),
-                _buildTitleText(),
-                Padding(padding: EdgeInsets.only(top: 4.sp)),
-                _buildDescriptionText(),
-                Padding(padding: EdgeInsets.only(top: 30.sp)),
-                _buildButton(),
-                if (bloc.subBtnText != null) ...[
-                  Padding(padding: EdgeInsets.only(top: 15.sp)),
-                  _buildSubBtnText(),
-                ],
-                Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
-              ],
-            );
-          },
+        return Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: topPadding)),
+            Expanded(child: _buildImage()),
+            _buildTitleText(),
+            Padding(padding: EdgeInsets.only(top: 4.sp)),
+            _buildDescriptionText(),
+            Padding(padding: EdgeInsets.only(top: 30.sp)),
+            _buildButton(),
+            if (bloc.subBtnText != null) ...[
+              Padding(padding: EdgeInsets.only(top: 15.sp)),
+              _buildSubBtnText(),
+            ],
+            Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
+          ],
         );
       },
     );

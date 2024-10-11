@@ -55,7 +55,7 @@ class ModelsPage extends StatelessWidget {
 
   Widget _buildCategoryContainer(ModelCategory category) {
     List<Model> _models =
-        [...category.topModels, ...category.randomOthersModels].sublist(0, 4);
+        [...category.topModels, ...category.randomOthersModels].sublist(0, 6);
 
     return Container(
       width: double.infinity,
@@ -82,14 +82,17 @@ class ModelsPage extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      category.name(
-                          getGlobalLocale(GlobalNavigator().currentContext)),
-                      style: _appTheme.fonts.sTitle.semibold.style,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    child: Container(
+                      child: Text(
+                        category.name(
+                            getGlobalLocale(GlobalNavigator().currentContext)),
+                        style: _appTheme.fonts.xsTitle.semibold.style,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
+                  Padding(padding: EdgeInsets.only(right: 10.sp)),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 6.sp),
                     child: Text(
@@ -97,20 +100,23 @@ class ModelsPage extends StatelessWidget {
                         "pages.home.models.btn_see_all",
                         namedArgs: {"modelsCnt": category.modelsCnt.toString()},
                       ),
-                      style: _appTheme.fonts.xsBody.semibold.style,
+                      style: _appTheme.fonts.xsBody.semibold.style
+                          .copyWith(fontSize: 11.sp),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(top: 16.sp)),
+          Padding(padding: EdgeInsets.only(top: 8.sp)),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0.sp),
             child: StaticGrid(
-              columnCount: 2,
-              verticalGap: 8.sp,
-              horizontalGap: 8.sp,
+              columnCount: 3,
+              verticalGap: 5.sp,
+              horizontalGap: 5.sp,
               children: _models
                   .map(
                     (model) => LayoutBuilder(
@@ -137,7 +143,7 @@ class ModelsPage extends StatelessWidget {
         List<Widget> children = [];
         for (ModelCategory category in categories) {
           if (children.isNotEmpty)
-            children.add(Padding(padding: EdgeInsets.only(top: 35.sp)));
+            children.add(Padding(padding: EdgeInsets.only(top: 20.sp)));
           children.add(_buildCategoryContainer(category));
         }
         return Column(
@@ -152,25 +158,18 @@ class ModelsPage extends StatelessWidget {
     bloc = BlocProvider.of<ModelsPageBloc>(context);
     _appTheme = AppThemeV2.of(context);
 
-    return StreamBuilder<ModelsPageData>(
-      stream: bloc.stream,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return Container();
-
-        return SizedBox.expand(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: 20.sp)),
-                _buildIconContainer(),
-                Padding(padding: EdgeInsets.only(top: 10.sp)),
-                _buildCategoriesList(),
-                Padding(padding: EdgeInsets.only(top: 15.sp)),
-              ],
-            ),
-          ),
-        );
-      },
+    return SizedBox.expand(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: 20.sp)),
+            _buildIconContainer(),
+            Padding(padding: EdgeInsets.only(top: 10.sp)),
+            _buildCategoriesList(),
+            Padding(padding: EdgeInsets.only(top: 15.sp)),
+          ],
+        ),
+      ),
     );
   }
 }

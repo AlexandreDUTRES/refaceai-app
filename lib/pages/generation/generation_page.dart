@@ -42,51 +42,58 @@ class GenerationPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSaveContainer(bool isLocallySaved) {
-    return Container(
-      width: double.infinity,
-      alignment: Alignment.center,
-      child: GestureDetector(
-        onTap:
-            isLocallySaved ? null : () async => await bloc.locallySaveImage(),
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 8.sp, horizontal: 12.sp),
-          decoration: BoxDecoration(
-            color: _appTheme.palette.textColor.withOpacity(0.15),
-            borderRadius: BorderRadius.circular(20.sp),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              isLocallySaved
-                  ? Icon(
-                      Icons.check_circle_rounded,
-                      color: _appTheme.palette.textColor,
-                      size: 18.sp,
-                    )
-                  : Icon(
-                      Icons.download_for_offline_rounded,
-                      color: _appTheme.palette.textColor,
-                      size: 18.sp,
-                    ),
-              Padding(padding: EdgeInsets.only(left: 8.sp)),
-              Padding(
-                padding: EdgeInsets.only(bottom: 2.sp),
-                child: isLocallySaved
-                    ? Text(
-                        tr("pages.generation.txt_saved"),
-                        style: _appTheme.fonts.sBody.bold.style,
-                      )
-                    : Text(
-                        tr("pages.generation.txt_donwload"),
-                        style: _appTheme.fonts.sBody.bold.style,
-                      ),
+  Widget _buildSaveContainer(int index) {
+    return StreamBuilder<GenerationPageData>(
+      stream: bloc.stream,
+      builder: (context, snapshot) {
+        bool isLocallySaved = snapshot.data?.isLocallySaved[index] ?? false;
+        return Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: GestureDetector(
+            onTap: isLocallySaved
+                ? null
+                : () async => await bloc.locallySaveImage(),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 8.sp, horizontal: 12.sp),
+              decoration: BoxDecoration(
+                color: _appTheme.palette.textColor.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(20.sp),
               ),
-              Padding(padding: EdgeInsets.only(left: 5.sp)),
-            ],
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  isLocallySaved
+                      ? Icon(
+                          Icons.check_circle_rounded,
+                          color: _appTheme.palette.textColor,
+                          size: 18.sp,
+                        )
+                      : Icon(
+                          Icons.download_for_offline_rounded,
+                          color: _appTheme.palette.textColor,
+                          size: 18.sp,
+                        ),
+                  Padding(padding: EdgeInsets.only(left: 8.sp)),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 2.sp),
+                    child: isLocallySaved
+                        ? Text(
+                            tr("pages.generation.txt_saved"),
+                            style: _appTheme.fonts.sBody.bold.style,
+                          )
+                        : Text(
+                            tr("pages.generation.txt_donwload"),
+                            style: _appTheme.fonts.sBody.bold.style,
+                          ),
+                  ),
+                  Padding(padding: EdgeInsets.only(left: 5.sp)),
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -146,7 +153,6 @@ class GenerationPage extends StatelessWidget {
 
   Widget _buildGenerationPage({
     required BoxConstraints constraints,
-    required AsyncSnapshot<GenerationPageData> snapshot,
     required Generation generation,
     required int index,
   }) {
@@ -163,7 +169,7 @@ class GenerationPage extends StatelessWidget {
           Padding(padding: EdgeInsets.only(top: 35.sp)),
           _buildGenerationImage(generation),
           Padding(padding: EdgeInsets.only(top: 15.sp)),
-          _buildSaveContainer(snapshot.data!.isLocallySaved[index]),
+          _buildSaveContainer(index),
           Padding(padding: EdgeInsets.only(top: 50.sp)),
           Expanded(child: Container()),
           _buildPhotoButton(),
@@ -186,29 +192,21 @@ class GenerationPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<GenerationPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Padding(
-              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
-              child: PreloadPageView.builder(
-                controller: bloc.preloadPageController,
-                itemCount: bloc.generations.length,
-                preloadPagesCount: min(3, bloc.generations.length),
-                itemBuilder: (context, i) {
-                  return _buildGenerationPage(
-                    constraints: constraints,
-                    snapshot: snapshot,
-                    generation: bloc.generations[i],
-                    index: i,
-                  );
-                },
-                onPageChanged: (i) => bloc.setIndex(i),
-              ),
-            );
-          },
+        return Padding(
+          padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+          child: PreloadPageView.builder(
+            controller: bloc.preloadPageController,
+            itemCount: bloc.generations.length,
+            preloadPagesCount: min(3, bloc.generations.length),
+            itemBuilder: (context, i) {
+              return _buildGenerationPage(
+                constraints: constraints,
+                generation: bloc.generations[i],
+                index: i,
+              );
+            },
+            onPageChanged: (i) => bloc.setIndex(i),
+          ),
         );
       },
     );

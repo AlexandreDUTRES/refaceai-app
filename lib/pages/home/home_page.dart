@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildNavBar(AsyncSnapshot<HomePageData> snapshot) {
+  Widget _buildNavBar() {
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 30, sigmaY: 10),
@@ -84,36 +84,42 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          child: Column(
-            children: [
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: _buildNavigationIcon(
-                        text: tr("pages.home.btn_nav_model"),
-                        iconData: Icons.face_retouching_natural_outlined,
-                        isActive: snapshot.data!.navigationState ==
-                            HomeNavigationState.models,
-                        onTap: () => bloc
-                            .goToNavigationState(HomeNavigationState.models),
-                      ),
+          child: StreamBuilder<HomePageData>(
+            stream: bloc.stream,
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) return Container();
+              return Column(
+                children: [
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: _buildNavigationIcon(
+                            text: tr("pages.home.btn_nav_model"),
+                            iconData: Icons.face_retouching_natural_outlined,
+                            isActive: snapshot.data!.navigationState ==
+                                HomeNavigationState.models,
+                            onTap: () => bloc.goToNavigationState(
+                                HomeNavigationState.models),
+                          ),
+                        ),
+                        Expanded(
+                          child: _buildNavigationIcon(
+                            text: tr("pages.home.btn_nav_images"),
+                            iconData: Icons.photo_library_outlined,
+                            isActive: snapshot.data!.navigationState ==
+                                HomeNavigationState.generations,
+                            onTap: () => bloc.goToNavigationState(
+                                HomeNavigationState.generations),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: _buildNavigationIcon(
-                        text: tr("pages.home.btn_nav_images"),
-                        iconData: Icons.photo_library_outlined,
-                        isActive: snapshot.data!.navigationState ==
-                            HomeNavigationState.generations,
-                        onTap: () => bloc.goToNavigationState(
-                            HomeNavigationState.generations),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
+                  )
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -137,42 +143,36 @@ class HomePage extends StatelessWidget {
       child: GenerationsPage(),
     );
 
-    return StreamBuilder<HomePageData>(
-      stream: bloc.stream,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return Container();
-        return PageLayout(
-          backgroundColor: _appTheme.palette.backgroundColor,
-          canPop: bloc.canPop,
-          onPopInvoked: bloc.onPopInvoked,
-          bottomStickyWidget: _buildNavBar(snapshot),
-          bodyBuilder: (
-            BuildContext context,
-            BoxConstraints constraints,
-            double topPadding,
-            double bottomPadding,
-          ) {
-            Future.delayed(Duration.zero).then((_) => bloc.afterFirstBuild());
-            return Padding(
-              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
-              child: PreloadPageView.builder(
-                controller: bloc.preloadPageController,
-                itemCount: HomeNavigationState.values.length,
-                preloadPagesCount: HomeNavigationState.values.length,
-                itemBuilder: (context, i) {
-                  HomeNavigationState state = HomeNavigationState.values[i];
-                  switch (state) {
-                    case HomeNavigationState.models:
-                      return modelsProvider;
-                    case HomeNavigationState.generations:
-                      return generationsProvider;
-                  }
-                },
-                onPageChanged: (i) =>
-                    bloc.setNavigationState(HomeNavigationState.values[i]),
-              ),
-            );
-          },
+    return PageLayout(
+      backgroundColor: _appTheme.palette.backgroundColor,
+      canPop: bloc.canPop,
+      onPopInvoked: bloc.onPopInvoked,
+      bottomStickyWidget: _buildNavBar(),
+      bodyBuilder: (
+        BuildContext context,
+        BoxConstraints constraints,
+        double topPadding,
+        double bottomPadding,
+      ) {
+        Future.delayed(Duration.zero).then((_) => bloc.afterFirstBuild());
+        return Padding(
+          padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+          child: PreloadPageView.builder(
+            controller: bloc.preloadPageController,
+            itemCount: HomeNavigationState.values.length,
+            preloadPagesCount: HomeNavigationState.values.length,
+            itemBuilder: (context, i) {
+              HomeNavigationState state = HomeNavigationState.values[i];
+              switch (state) {
+                case HomeNavigationState.models:
+                  return modelsProvider;
+                case HomeNavigationState.generations:
+                  return generationsProvider;
+              }
+            },
+            onPageChanged: (i) =>
+                bloc.setNavigationState(HomeNavigationState.values[i]),
+          ),
         );
       },
     );

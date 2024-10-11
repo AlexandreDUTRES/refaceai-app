@@ -117,28 +117,21 @@ class GalleryPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<GalleryPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return SingleChildScrollView(
-              controller: customScrollController,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: topPadding),
-                  ),
-                  PageTopBar(
-                    backButton: true,
-                    title: tr("pages.gallery.txt_title"),
-                  ),
-                  _buildList(),
-                  Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
-                ],
+        return SingleChildScrollView(
+          controller: customScrollController,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: topPadding),
               ),
-            );
-          },
+              PageTopBar(
+                backButton: true,
+                title: tr("pages.gallery.txt_title"),
+              ),
+              _buildList(),
+              Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
+            ],
+          ),
         );
       },
     );

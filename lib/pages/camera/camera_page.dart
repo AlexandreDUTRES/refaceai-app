@@ -95,26 +95,23 @@ class CameraPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<CameraPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: topPadding)),
-                Expanded(
-                  child: snapshot.data!.cameraState == CameraState.active
-                      ? _buildCameraView()
-                      : Container(
-                          color: Colors.black,
-                        ),
-                ),
-                _buildBottomButton(),
-                Padding(padding: EdgeInsets.only(top: bottomPadding)),
-              ],
-            );
-          },
+        return Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: topPadding)),
+            Expanded(
+              child: StreamBuilder<CameraPageData>(
+                stream: bloc.stream,
+                builder: (_, snapshot) =>
+                    snapshot.data?.cameraState == CameraState.active
+                        ? _buildCameraView()
+                        : Container(
+                            color: Colors.black,
+                          ),
+              ),
+            ),
+            _buildBottomButton(),
+            Padding(padding: EdgeInsets.only(top: bottomPadding)),
+          ],
         );
       },
     );

@@ -17,7 +17,6 @@ import 'package:photogenerator/utils/Api.dart';
 import 'package:photogenerator/utils/Common.dart';
 import 'package:preload_page_view/preload_page_view.dart';
 import 'package:provider/provider.dart';
-import 'package:uuid/v4.dart';
 
 class ModelPageData {}
 
@@ -63,46 +62,53 @@ class ModelPageBloc extends Bloc<ModelPageData> {
 
   Future<void> _generate(String filePath) async {
     await GlobalLoader.showOverlayLoader();
-    final String status = await Api.getUserGenerationStatus(
+    final String advertStatus = await Api.getUserGenerationStatus(
       blocManager.userBloc.userId!,
     );
     GlobalLoader.hideOverlayLoader();
 
-    final String advertId = UuidV4().generate();
-    RewardedAd? ad;
+    InterstitialAd? interstitialAd;
+    RewardedAd? rewardedAd;
 
-    if (status == 'no_ad') {
+    if (advertStatus == 'no_ad') {
       await GlobalLoader.showLoadingPage();
-    } else {
+    } else if (advertStatus == 'long_ad' || advertStatus == 'short_ad') {
       if (!SharedPreferencesStorage.getAdWarning()) {
         await _showAdWarningPage();
       }
 
       await GlobalLoader.showLoadingPage();
       // get google ads rewarded ad
-      ad = await AdsHandler.getRewardedAd();
-      if (ad == null) {
+      if (advertStatus == 'long_ad') {
+        rewardedAd = await AdsHandler.getRewardedAd();
+      } else {
+        print("SHORT AD");
+        interstitialAd = await AdsHandler.getInterstitialAd();
+      }
+      if (rewardedAd == null && interstitialAd == null) {
         await GlobalLoader.hideLoadingPage();
         return Common.showSnackbar(tr("pages.model.snackbar_no_ad"));
       }
+    } else {
+      return;
     }
 
     try {
-      String generationId = await Api.startGeneration(
-        blocManager.userBloc.userId!,
-        filePath: filePath,
-        promptId: _models[_index].id,
-        advertId: ad != null ? advertId : null,
-      );
+     final List<dynamic> res = await Future.wait([
+        Api.startGeneration(
+          blocManager.userBloc.userId!,
+          filePath: filePath,
+          promptId: _models[_index].id,
+          advertStatus: advertStatus,
+        ),
+        if (rewardedAd != null || interstitialAd != null)
+          AdsHandler.showAd(
+            rewardedAd: rewardedAd,
+            interstitialAd: interstitialAd,
+          ),
+      ]);
 
-      if (ad != null) {
-        await AdsHandler.showAd(
-          ad: ad,
-          advertId: advertId,
-        );
-      }
-
-      Generation generation = await _waitGeneration(generationId);
+      Generation generation = await _waitGeneration(res[0] as String);
       await GlobalLoader.hideLoadingPage();
       Provider.of<GlobalAppData>(
         GlobalNavigator().currentContext,
@@ -119,7 +125,7 @@ class ModelPageBloc extends Bloc<ModelPageData> {
   }
 
   Future<Generation> _waitGeneration(String generationId) async {
-    final int maxRetry = 60;
+    final int maxRetry = 90;
     int cnt = 0;
 
     while (cnt < maxRetry) {
@@ -129,7 +135,7 @@ class ModelPageBloc extends Bloc<ModelPageData> {
       } catch (e) {
         if (kDebugMode) print(e);
       }
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 1));
       cnt++;
     }
 

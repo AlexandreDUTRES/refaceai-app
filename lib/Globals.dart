@@ -16,8 +16,12 @@ class Globals {
 
   static String get apiUrl => FlutterConfig.get("API_URL");
 
-  static String get adMobAdUnitId => FlutterConfig.get(
-      isAndroid ? "AD_MOB_ANDROID_AD_UNIT_ID" : "AD_MOB_IOS_AD_UNIT_ID");
+  static String get adMobAdUnitIdRewarded => FlutterConfig.get(isAndroid
+      ? "AD_MOB_ANDROID_AD_UNIT_ID_REWARDED"
+      : "AD_MOB_IOS_AD_UNIT_ID_REWARDED");
+  static String get adMobAdUnitIdInterstitial => FlutterConfig.get(isAndroid
+      ? "AD_MOB_ANDROID_AD_UNIT_ID_INTERSTITIAL"
+      : "AD_MOB_IOS_AD_UNIT_ID_INTERSTITIAL");
 
   // late variables
   static late String appVersion;

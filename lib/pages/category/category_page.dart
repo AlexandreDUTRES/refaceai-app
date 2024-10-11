@@ -21,9 +21,9 @@ class CategoryPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.sp),
       width: double.infinity,
       child: StaticGrid(
-        columnCount: 2,
-        verticalGap: 8.sp,
-        horizontalGap: 8.sp,
+        columnCount: 3,
+        verticalGap: 5.sp,
+        horizontalGap: 5.sp,
         children: bloc.category.models
             .map(
               (model) => LayoutBuilder(
@@ -55,28 +55,21 @@ class CategoryPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<CategoryPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return SingleChildScrollView(
-              controller: customScrollController,
-              child: Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: topPadding)),
-                  PageTopBar(
-                    backButton: true,
-                    title: bloc.category.name(
-                        getGlobalLocale(GlobalNavigator().currentContext)),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 5.sp)),
-                  _buildModelsList(),
-                  Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
-                ],
+        return SingleChildScrollView(
+          controller: customScrollController,
+          child: Column(
+            children: [
+              Padding(padding: EdgeInsets.only(top: topPadding)),
+              PageTopBar(
+                backButton: true,
+                title: bloc.category
+                    .name(getGlobalLocale(GlobalNavigator().currentContext)),
               ),
-            );
-          },
+              Padding(padding: EdgeInsets.only(top: 5.sp)),
+              _buildModelsList(),
+              Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
+            ],
+          ),
         );
       },
     );

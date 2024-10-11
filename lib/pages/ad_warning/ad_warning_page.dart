@@ -84,26 +84,19 @@ class AdWarningPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<AdWarningPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: topPadding)),
-                Expanded(child: Container()),
-                _buildImage(),
-                Padding(padding: EdgeInsets.only(top: 40.sp)),
-                _buildTitleText(),
-                Padding(padding: EdgeInsets.only(top: 15.sp)),
-                _buildDescriptionText(),
-                Expanded(child: Container()),
-                _buildButton(),
-                Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
-              ],
-            );
-          },
+        return Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: topPadding)),
+            Expanded(child: Container()),
+            _buildImage(),
+            Padding(padding: EdgeInsets.only(top: 40.sp)),
+            _buildTitleText(),
+            Padding(padding: EdgeInsets.only(top: 15.sp)),
+            _buildDescriptionText(),
+            Expanded(child: Container()),
+            _buildButton(),
+            Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
+          ],
         );
       },
     );

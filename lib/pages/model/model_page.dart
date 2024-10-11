@@ -194,24 +194,17 @@ class ModelPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<ModelPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Padding(
-              padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
-              child: PreloadPageView.builder(
-                controller: bloc.preloadPageController,
-                itemCount: bloc.models.length,
-                preloadPagesCount: min(3, bloc.models.length),
-                itemBuilder: (context, i) {
-                  return _buildModelPage(constraints, bloc.models[i]);
-                },
-                onPageChanged: (i) => bloc.setIndex(i),
-              ),
-            );
-          },
+        return Padding(
+          padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+          child: PreloadPageView.builder(
+            controller: bloc.preloadPageController,
+            itemCount: bloc.models.length,
+            preloadPagesCount: min(3, bloc.models.length),
+            itemBuilder: (context, i) {
+              return _buildModelPage(constraints, bloc.models[i]);
+            },
+            onPageChanged: (i) => bloc.setIndex(i),
+          ),
         );
       },
     );

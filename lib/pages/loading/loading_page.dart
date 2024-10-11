@@ -25,35 +25,31 @@ class LoadingPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
-        return StreamBuilder<LoadingPageData>(
-          stream: bloc.stream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return Container();
-
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(padding: EdgeInsets.only(top: topPadding)),
-                CustomLotties.animated__loader.build(
-                  width: 250.sp,
-                  repeat: true,
-                ),
-                AnimatedOpacity(
-                  opacity: snapshot.data!.opacity,
-                  duration: bloc.fadeDuration,
-                  child: Container(
-                    width: 0.9.sw,
-                    child: Text(
-                      bloc.loadingSentences[snapshot.data!.sentenceIndex],
-                      style: _appTheme.fonts.body.semibold.style,
-                      textAlign: TextAlign.center,
-                    ),
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(padding: EdgeInsets.only(top: topPadding)),
+            CustomLotties.animated__loader.build(
+              width: 250.sp,
+              repeat: true,
+            ),
+            StreamBuilder<LoadingPageData>(
+              stream: bloc.stream,
+              builder: (_, snapshot) => AnimatedOpacity(
+                opacity: snapshot.data?.opacity ?? 1,
+                duration: bloc.fadeDuration,
+                child: Container(
+                  width: 0.9.sw,
+                  child: Text(
+                    bloc.loadingSentences[snapshot.data?.sentenceIndex ?? 0],
+                    style: _appTheme.fonts.body.semibold.style,
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: bottomPadding + 30.sp)),
-              ],
-            );
-          },
+              ),
+            ),
+            Padding(padding: EdgeInsets.only(top: bottomPadding + 30.sp)),
+          ],
         );
       },
     );

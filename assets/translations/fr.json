@@ -26,7 +26,7 @@
                 "txt_title": "Mes images"
             },
             "models": {
-                "btn_see_all": "TOUT AFFICHER ({modelsCnt})"
+                "btn_see_all": "VOIR TOUT ({modelsCnt})"
             }
         },
         "loading": {

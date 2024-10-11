@@ -28,15 +28,16 @@ class HttpProvider {
     required String url,
     required String queryString,
     required dynamic body,
+    required int timestamp,
   }) async {
     String bodyPart;
     if (body is FormData) {
-      bodyPart = json.encode(body.fields.map((e) => e.key).toList());
+      bodyPart = "";
     } else {
       bodyPart = body.keys.isEmpty ? "" : json.encode(body);
     }
     String message =
-        "${method.toString().replaceFirst('RequestMethod.', '').toUpperCase()}\n$url\n$queryString\n$bodyPart";
+        "${method.toString().replaceFirst('RequestMethod.', '').toUpperCase()}\n$url\n$queryString\n$bodyPart\n$timestamp";
     HexString hash =
         HexString(Common.hashSHA256(message).toString().substring(5, 12));
     int p = hash.toInt();
@@ -67,13 +68,15 @@ class HttpProvider {
     }
 
     if (!(await manager.hasConnection())) throw HttpError.noConnection;
-
+    final DateTime now = DateTime.now();
     globalHeaders["secure-token"] = await _buildSignature(
       method: method,
       url: url,
       queryString: queryString,
       body: body,
+      timestamp: now.millisecondsSinceEpoch,
     );
+    globalHeaders["timestamp"] = now.millisecondsSinceEpoch.toString();
 
     return await HttpRequest(
       method: method,

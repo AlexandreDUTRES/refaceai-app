@@ -81,7 +81,7 @@ class Api {
     String userId, {
     required String filePath,
     required String promptId,
-    required String? advertId,
+    required String advertStatus,
   }) async {
     HttpResponse res = await HttpProvider.sendHttpRequest(
       method: RequestMethod.post,
@@ -91,7 +91,7 @@ class Api {
         "userId": userId,
         "image": await MultipartFile.fromFile(filePath),
         "promptId": promptId,
-        if (advertId != null) "advertId": advertId,
+        "advertStatus": advertStatus,
       }),
     );
     return res.body["id"];
