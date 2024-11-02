@@ -17,14 +17,12 @@ class CameraPage extends StatelessWidget {
   Widget _buildBottomButton() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
+      padding: EdgeInsets.symmetric(horizontal: 20.sp),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            width: 30.sp,
-          ),
+          Expanded(child: const SizedBox.shrink()),
           GestureDetector(
             onTap: () async => await bloc.takePhoto(),
             child: Container(
@@ -36,14 +34,19 @@ class CameraPage extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () => bloc.switchCamera(),
+          Expanded(
             child: Container(
-              color: Colors.transparent,
-              child: Icon(
-                Icons.cameraswitch_outlined,
-                size: 30.sp,
-                color: _appTheme.palette.textColor,
+              alignment: Alignment.centerRight,
+              child: GestureDetector(
+                onTap: () => bloc.switchCamera(),
+                child: Container(
+                  color: Colors.transparent,
+                  child: Icon(
+                    Icons.cameraswitch_outlined,
+                    size: 30.sp,
+                    color: _appTheme.palette.textColor,
+                  ),
+                ),
               ),
             ),
           ),
@@ -58,9 +61,12 @@ class CameraPage extends StatelessWidget {
         double size = constraints.maxWidth * 4;
         return Stack(
           children: [
-            CameraView(
-              key: bloc.cameraViewKey,
-              initialDirection: CameraLensDirection.front,
+            Align(
+              alignment: Alignment.center,
+              child: CameraView(
+                key: bloc.cameraViewKey,
+                initialDirection: CameraLensDirection.front,
+              ),
             ),
             Positioned(
               top: -size / 3.7,
@@ -76,6 +82,12 @@ class CameraPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            Positioned(
+              right: 0,
+              left: 0,
+              bottom: 40.sp,
+              child: _buildBottomButton(),
             ),
           ],
         );
@@ -109,7 +121,6 @@ class CameraPage extends StatelessWidget {
                           ),
               ),
             ),
-            _buildBottomButton(),
             Padding(padding: EdgeInsets.only(top: bottomPadding)),
           ],
         );

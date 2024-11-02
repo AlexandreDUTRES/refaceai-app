@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
@@ -54,8 +56,11 @@ class ModelsPage extends StatelessWidget {
   }
 
   Widget _buildCategoryContainer(ModelCategory category) {
-    List<Model> _models =
-        [...category.topModels, ...category.randomOthersModels].sublist(0, 6);
+    final int maxModels = min(6, category.modelsCnt);
+    final List<Model> _models = [
+      ...category.topModels,
+      ...category.randomOthersModels
+    ].sublist(0, maxModels);
 
     return Container(
       width: double.infinity,
@@ -67,14 +72,19 @@ class ModelsPage extends StatelessWidget {
             onTap: () async => await bloc.goToCategoryPage(category),
             child: Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 14.sp, vertical: 5.sp),
+              padding: EdgeInsets.symmetric(horizontal: 10.sp, vertical: 2.sp),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [
-                    _appTheme.palette.primaryColor,
-                    _appTheme.palette.borderColor.withOpacity(0.2),
+                    if (category.id == 'trends') ...[
+                      Color(0xffe6c619),
+                      Color(0xffe6c619).withOpacity(0.2),
+                    ] else ...[
+                      _appTheme.palette.primaryColor,
+                      _appTheme.palette.borderColor.withOpacity(0.2),
+                    ]
                   ],
                 ),
                 borderRadius: BorderRadius.circular(8.sp),
@@ -92,25 +102,29 @@ class ModelsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(right: 10.sp)),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 6.sp),
-                    child: Text(
-                      tr(
-                        "pages.home.models.btn_see_all",
-                        namedArgs: {"modelsCnt": category.modelsCnt.toString()},
+                  if (maxModels < category.modelsCnt) ...[
+                    Padding(padding: EdgeInsets.only(right: 10.sp)),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 6.sp),
+                      child: Text(
+                        tr(
+                          "pages.home.models.btn_see_all",
+                          namedArgs: {
+                            "modelsCnt": category.modelsCnt.toString()
+                          },
+                        ),
+                        style: _appTheme.fonts.xsBody.semibold.style
+                            .copyWith(fontSize: 11.sp),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      style: _appTheme.fonts.xsBody.semibold.style
-                          .copyWith(fontSize: 11.sp),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(top: 8.sp)),
+          Padding(padding: EdgeInsets.only(top: 7.sp)),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0.sp),
             child: StaticGrid(
@@ -143,7 +157,7 @@ class ModelsPage extends StatelessWidget {
         List<Widget> children = [];
         for (ModelCategory category in categories) {
           if (children.isNotEmpty)
-            children.add(Padding(padding: EdgeInsets.only(top: 20.sp)));
+            children.add(Padding(padding: EdgeInsets.only(top: 14.sp)));
           children.add(_buildCategoryContainer(category));
         }
         return Column(

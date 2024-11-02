@@ -4,13 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:photogenerator/global_localization/utils.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:photogenerator/global_navigator/models/app_bottom_modal.dart';
 import 'package:photogenerator/global_navigator/models/app_route.dart';
 import 'package:photogenerator/global_navigator/widgets/no_animation_material_page_route.dart';
 import 'package:navigation_history_observer/navigation_history_observer.dart';
 import 'package:statusbarz/statusbarz.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+import '../bloc_utils/bloc.dart';
 
 export 'package:navigation_history_observer/navigation_history_observer.dart';
 
@@ -82,26 +84,30 @@ class GlobalNavigator {
   }
 
   Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    Map<String, dynamic> args = settings.arguments == null
-        ? {}
-        : settings.arguments as Map<String, dynamic>;
-    Widget? currentBlocProvider;
-    Locale currentLocale = getGlobalLocale(currentContext);
-    return NoAnimationMaterialPageRoute(
-      settings: settings,
-      builder: (context) {
-        if (currentBlocProvider != null &&
-            currentLocale == getGlobalLocale(currentContext)) {
-          return currentBlocProvider!;
-        }
+    final Map<String, dynamic> args = settings.arguments == null
+        ? <String, dynamic>{}
+        : settings.arguments! as Map<String, dynamic>;
 
-        currentLocale = getGlobalLocale(currentContext);
-        AppRoute appRoute = _getAppRouteByName(settings.name!)!;
-        currentBlocProvider = appRoute.getBlocProvider(args);
+    final AppRoute<Bloc> appRoute = _getAppRouteByName(settings.name!)!;
+    final Widget currentBlocProvider = appRoute.getBlocProvider(args);
 
-        return currentBlocProvider!;
-      },
-    );
+    if (appRoute.pageTransitionType == null) {
+      return NoAnimationMaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) => currentBlocProvider);
+    } else {
+      return PageTransition<dynamic>(
+        settings: settings,
+        child: currentBlocProvider,
+        type: appRoute.pageTransitionType!,
+        duration: const Duration(milliseconds: 300),
+        reverseDuration: const Duration(milliseconds: 300),
+        alignment: Alignment.center,
+        // isIos: isIOS,
+        ctx: currentContext,
+        childCurrent: currentContext.widget,
+      );
+    }
   }
 
   Future<void> _waitCurrentStateValue() async {

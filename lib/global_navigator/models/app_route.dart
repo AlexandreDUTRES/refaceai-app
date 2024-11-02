@@ -1,8 +1,11 @@
 library app_route;
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:photogenerator/bloc_utils/bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
+
+export 'package:page_transition/src/enum.dart';
 
 class AppRoute<B extends Bloc> {
   final String name;
@@ -10,6 +13,7 @@ class AppRoute<B extends Bloc> {
   final bool disableScreenCaptureAndRecording;
   final bool disableOverlayAlerts;
   final bool forcedLightStatusBar;
+  final PageTransitionType? pageTransitionType;
   final void Function(AppRoute, Function?, Map<String, dynamic>) pushFunction;
   final B Function(Map<String, dynamic>) createBloc;
   final Widget Function(Map<String, dynamic>) createChild;
@@ -23,6 +27,7 @@ class AppRoute<B extends Bloc> {
     required this.pushFunction,
     required this.createBloc,
     required this.createChild,
+    required this.pageTransitionType,
   });
 
   void pushPage(

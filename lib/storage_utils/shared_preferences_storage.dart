@@ -45,4 +45,13 @@ class SharedPreferencesStorage {
     if (val == null) return {};
     return Map<String, String>.from(json.decode(val));
   }
+
+  // FCM TOPIC
+  static Future<void> storeFcmTopic(String topic) async {
+    await _prefs.setString("fcm_topic", topic);
+  }
+
+  static String? getFcmTopic() {
+    return _prefs.getString("fcm_topic");
+  }
 }

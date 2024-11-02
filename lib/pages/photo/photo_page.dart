@@ -15,7 +15,7 @@ class PhotoPage extends StatelessWidget {
   Widget _buildNoFaceContainer() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 20.sp),
+      margin: EdgeInsets.symmetric(horizontal: 20.sp),
       padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 10.sp),
       decoration: BoxDecoration(
         color: Colors.red[600],
@@ -55,17 +55,21 @@ class PhotoPage extends StatelessWidget {
   Widget _buildBottomBar() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 20.sp),
+      margin: EdgeInsets.symmetric(horizontal: 20.sp),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           GestureDetector(
             onTap: () => bloc.goBack(),
             child: Container(
-              color: Colors.transparent,
+              padding: EdgeInsets.all(10.sp),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                shape: BoxShape.circle,
+              ),
               child: Icon(
                 Icons.close,
-                size: 30.sp,
+                size: 34.sp,
                 color: _appTheme.palette.textColor,
               ),
             ),
@@ -73,10 +77,14 @@ class PhotoPage extends StatelessWidget {
           GestureDetector(
             onTap: () => bloc.useImage(),
             child: Container(
-              color: Colors.transparent,
+              padding: EdgeInsets.all(10.sp),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                shape: BoxShape.circle,
+              ),
               child: Icon(
                 Icons.check,
-                size: 30.sp,
+                size: 34.sp,
                 color: _appTheme.palette.textColor,
               ),
             ),
@@ -104,22 +112,39 @@ class PhotoPage extends StatelessWidget {
             Expanded(
               child: Container(
                 color: Colors.black,
-                child: Image.file(
-                  bloc.file,
-                  fit: BoxFit.contain,
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.rotationY(3.14159),
+                        child: Image.file(
+                          bloc.file,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 0,
+                      left: 0,
+                      bottom: 40.sp,
+                      child: StreamBuilder<PhotoPageData>(
+                        stream: bloc.stream,
+                        builder: (_, snapshot) {
+                          if (snapshot.data?.faceDetected == null)
+                            return Container();
+                          if (snapshot.data!.faceDetected!) {
+                            return _buildBottomBar();
+                          } else {
+                            return _buildNoFaceContainer();
+                          }
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            StreamBuilder<PhotoPageData>(
-              stream: bloc.stream,
-              builder: (_, snapshot) {
-                if (snapshot.data?.faceDetected == null) return Container();
-                if (snapshot.data!.faceDetected!) {
-                  return _buildBottomBar();
-                } else {
-                  return _buildNoFaceContainer();
-                }
-              },
             ),
             Padding(padding: EdgeInsets.only(top: bottomPadding)),
           ],
