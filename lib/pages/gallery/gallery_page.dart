@@ -9,6 +9,7 @@ import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/ui/bloc_manager/gallery_builder.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:photogenerator/ui/widgets/page_top_bar.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 // ignore: must_be_immutable
 class GalleryPage extends StatelessWidget {
@@ -19,9 +20,11 @@ class GalleryPage extends StatelessWidget {
     required double width,
     required Widget child,
     required Function() onTap,
+     Function()? onLongPress,
   }) {
     return GestureDetector(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: Container(
         height: width,
         width: width,
@@ -48,7 +51,7 @@ class GalleryPage extends StatelessWidget {
   Widget _buildImportContainer(double width) {
     return _buildCell(
       width: width,
-      onTap: () async => await bloc.openFilePicker(),
+      onTap: () async => await bloc.openFilePicker(_appTheme),
       child: Container(
         color: _appTheme.palette.secondaryColor,
         child: Icon(
@@ -64,6 +67,7 @@ class GalleryPage extends StatelessWidget {
     return _buildCell(
       width: width,
       onTap: () async => await bloc.selectMedia(file),
+      onLongPress: () async => await bloc.goToDeleteGalleryImageModal(file),
       child: Image.file(
         file,
         fit: BoxFit.cover,
@@ -102,6 +106,52 @@ class GalleryPage extends StatelessWidget {
     );
   }
 
+  Widget _buildInfoText({
+    required String title,
+    required String description,
+    required IconData iconData,
+    required Color iconColor,
+  }) {
+    return Container(
+      width: double.infinity,
+      child: Row(
+        children: [
+          Container(
+            width: 45.sp,
+            height: 45.sp,
+            decoration: BoxDecoration(
+              color: iconColor,
+              shape: BoxShape.circle,
+            ),
+            alignment: Alignment.center,
+            child: Icon(
+              iconData,
+              size: 25.sp,
+              color: _appTheme.palette.textColor,
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(left: 15.sp)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: _appTheme.fonts.sBody.noHeight.semibold.style,
+                ),
+                Padding(padding: EdgeInsets.only(top: 6.sp)),
+                Text(
+                  description,
+                  style: _appTheme.fonts.xsBody.style,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     bloc = BlocProvider.of<GalleryPageBloc>(context);
@@ -121,13 +171,33 @@ class GalleryPage extends StatelessWidget {
           controller: customScrollController,
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: topPadding),
-              ),
               PageTopBar(
                 backButton: true,
                 title: tr("pages.gallery.txt_title"),
-              ),
+              ).padding(top: topPadding),
+              Column(
+                children: [
+                  _buildInfoText(
+                    title: tr("pages.gallery.txt_info_1_title"),
+                    description: tr("pages.gallery.txt_info_1_description"),
+                    iconData: Icons.check,
+                    iconColor: Colors.blue[800]!,
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 20.sp)),
+                  _buildInfoText(
+                    title: tr("pages.gallery.txt_info_2_title"),
+                    description: tr("pages.gallery.txt_info_2_description"),
+                    iconData: Icons.close,
+                    iconColor: Colors.red[800]!,
+                  ),
+                ],
+              )
+                  .padding(horizontal: 12.sp, vertical: 14.sp)
+                  .decorated(
+                    border: Border.all(color: _appTheme.palette.secondaryColor),
+                    borderRadius: BorderRadius.circular(10.sp),
+                  )
+                  .padding(horizontal: 16.sp, bottom: 10.sp),
               _buildList(),
               Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
             ],

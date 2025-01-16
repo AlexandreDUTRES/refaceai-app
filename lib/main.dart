@@ -129,7 +129,7 @@ class MainApp extends StatelessWidget {
         EasyLocalization.ensureInitialized();
         return GlobalLoader.buildOverlay(
           builder(themeData),
-          overlayColor: Colors.black.withOpacity(0.5),
+          overlayColor: Colors.black.withValues(alpha:0.5),
           loaderColor: appTheme.palette.primaryColor,
           size: 70.sp,
         );

@@ -4,14 +4,15 @@ import 'package:photogenerator/http_utils/provider.dart';
 import 'package:photogenerator/http_utils/sub/request.dart';
 import 'package:photogenerator/http_utils/sub/response.dart';
 import 'package:photogenerator/models/generation.dart';
+import 'package:photogenerator/models/model.dart';
 import 'package:photogenerator/models/model_category.dart';
 
 class Api {
-  static Future<List<ModelCategory>> getModelCategories() async {
+  static Future<List<ModelCategory>> getModelCategories(String userId) async {
     HttpResponse res = await HttpProvider.sendHttpRequest(
       method: RequestMethod.get,
       host: Globals.apiUrl,
-      url: "/api/v1/generations/models",
+      url: "/api/v1/generations/models/user/$userId",
     );
 
     List<ModelCategory> result = [];
@@ -20,6 +21,18 @@ class Api {
     }
 
     return result;
+  }
+
+  static Future<Model> getModel(
+    String userId,
+    String modelId,
+  ) async {
+    HttpResponse res = await HttpProvider.sendHttpRequest(
+      method: RequestMethod.get,
+      host: Globals.apiUrl,
+      url: "/api/v1/generations/models/user/$userId/$modelId",
+    );
+    return Model.fromMap(res.body);
   }
 
   static Future<String> createUserId(String deviceId) async {
@@ -68,30 +81,19 @@ class Api {
     );
   }
 
-  static Future<String> getUserGenerationStatus(String userId) async {
-    HttpResponse res = await HttpProvider.sendHttpRequest(
-      method: RequestMethod.get,
-      host: Globals.apiUrl,
-      url: "/api/v1/generations/user/$userId/status",
-    );
-    return res.body["status"];
-  }
-
   static Future<String> startGeneration(
     String userId, {
     required String filePath,
     required String promptId,
-    required String advertStatus,
   }) async {
     HttpResponse res = await HttpProvider.sendHttpRequest(
       method: RequestMethod.post,
       host: Globals.apiUrl,
-      url: "/api/v1/generations/v2",
+      url: "/api/v1/generations/v3",
       body: FormData.fromMap({
         "userId": userId,
         "image": await MultipartFile.fromFile(filePath),
         "promptId": promptId,
-        "advertStatus": advertStatus,
       }),
     );
     return res.body["id"];
@@ -117,6 +119,23 @@ class Api {
       body: {
         "userId": userId,
         "generationId": generationId,
+      },
+    );
+  }
+
+  static Future<void> reviewGeneration(
+    String userId, {
+    required String generationId,
+    required int rating,
+  }) async {
+    await HttpProvider.sendHttpRequest(
+      method: RequestMethod.post,
+      host: Globals.apiUrl,
+      url: "/api/v1/generations/review",
+      body: {
+        "userId": userId,
+        "generationId": generationId,
+        "rating": rating,
       },
     );
   }

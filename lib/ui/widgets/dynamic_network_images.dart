@@ -89,7 +89,9 @@ class DynamicNetworkImagesState extends State<DynamicNetworkImages> {
     return Container(
       width: widget.width,
       height: widget.height,
-      color: Colors.white.withOpacity(0.1),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha:0.1),
+      ),
       child: PreloadPageView.builder(
         physics: NeverScrollableScrollPhysics(),
         itemCount: widget.urls.length,

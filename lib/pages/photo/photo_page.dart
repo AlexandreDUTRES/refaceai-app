@@ -64,7 +64,7 @@ class PhotoPage extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(10.sp),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withValues(alpha:0.5),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -79,7 +79,7 @@ class PhotoPage extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(10.sp),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withValues(alpha:0.5),
                 shape: BoxShape.circle,
               ),
               child: Icon(

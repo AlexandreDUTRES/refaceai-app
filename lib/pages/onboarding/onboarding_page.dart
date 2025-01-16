@@ -25,7 +25,7 @@ class OnboardingPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25.sp),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.25),
+                    color: Colors.black.withValues(alpha:0.25),
                     blurRadius: 20.0,
                   ),
                 ],

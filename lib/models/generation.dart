@@ -6,6 +6,7 @@ class Generation {
   String _created;
   String _promptId;
   String _url;
+  int? _rating;
 
   Generation({
     required String id,
@@ -13,17 +14,23 @@ class Generation {
     required String created,
     required String promptId,
     required String url,
+    required int? rating,
   })  : _id = id,
         _userId = userId,
         _created = created,
         _promptId = promptId,
-        _url = url;
+        _url = url,
+        _rating = rating;
 
   String get id => _id;
   String get promptId => _promptId;
   String get url => _url;
-  int get createdTimestamp =>
-      DateTime.parse(_created).millisecondsSinceEpoch;
+  int? get rating => _rating;
+  int get createdTimestamp => DateTime.parse(_created).millisecondsSinceEpoch;
+
+  void setRating(int rating) {
+    _rating = rating;
+  }
 
   factory Generation.fromMap(Map data) {
     return Generation(
@@ -32,6 +39,7 @@ class Generation {
       created: data["created"],
       promptId: data["promptId"],
       url: data["url"],
+      rating: data["rating"] != null ? data["rating"] : null,
     );
   }
 
@@ -41,6 +49,7 @@ class Generation {
         "created": _created,
         "promptId": _promptId,
         "url": _url,
+        if (_rating != null) "rating": _rating,
       };
 
   @override

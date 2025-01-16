@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
@@ -21,9 +22,9 @@ class CategoryPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.sp),
       width: double.infinity,
       child: StaticGrid(
-        columnCount: 3,
-        verticalGap: 5.sp,
-        horizontalGap: 5.sp,
+        columnCount: 2,
+        verticalGap: 10.sp,
+        horizontalGap: 10.sp,
         children: bloc.category.models
             .map(
               (model) => LayoutBuilder(
@@ -64,8 +65,14 @@ class CategoryPage extends StatelessWidget {
                 backButton: true,
                 title: bloc.category
                     .name(getGlobalLocale(GlobalNavigator().currentContext)),
+                decorationImage: DecorationImage(
+                  image: CachedNetworkImageProvider(bloc.category.banner),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.centerRight,
+                ),
+                innerBottomPadding: 15.sp,
               ),
-              Padding(padding: EdgeInsets.only(top: 5.sp)),
+              Padding(padding: EdgeInsets.only(top: 16.sp)),
               _buildModelsList(),
               Padding(padding: EdgeInsets.only(top: bottomPadding + 15.sp)),
             ],

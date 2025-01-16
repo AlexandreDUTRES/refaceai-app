@@ -145,6 +145,7 @@ class PageLayoutState extends State<PageLayout> {
         top: false,
         child: PopScope(
           canPop: widget.canPop,
+          // ignore: deprecated_member_use
           onPopInvoked: widget.onPopInvoked,
           child: Scaffold(
             backgroundColor: widget.backgroundColor,

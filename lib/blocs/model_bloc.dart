@@ -17,9 +17,27 @@ class ModelBloc extends BlocRx<ModelBlocData> {
     updateUI();
   }
 
-  Future<void> refresh() async {
+  Future<void> refreshAll(String userId) async {
     try {
-      blocData!.categories = await Api.getModelCategories();
+      blocData!.categories = await Api.getModelCategories(userId);
+      updateUI();
+    } catch (e) {
+      if (kDebugMode) print(e);
+      Common.showSnackbar();
+    }
+  }
+
+  Future<void> refreshModel(
+    String userId,
+    String modelId,
+  ) async {
+    final int indexCategory = blocData!.categories.indexWhere(
+      (category) => category.models.any((model) => model.id == modelId),
+    );
+    if (indexCategory == -1) return;
+    try {
+      blocData!.categories[indexCategory]
+          .replaceModel(await Api.getModel(userId, modelId));
       updateUI();
     } catch (e) {
       if (kDebugMode) print(e);

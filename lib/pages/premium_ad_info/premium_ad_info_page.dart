@@ -3,14 +3,14 @@ import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/global_localization/easy_localization.dart';
-import 'package:photogenerator/pages/ad_warning/ad_warning_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
+import 'package:photogenerator/pages/premium_ad_info/premium_ad_info_page_bloc.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 // ignore: must_be_immutable
-class AdWarningPage extends StatelessWidget {
-  late AdWarningPageBloc bloc;
+class PremiumAdInfoPage extends StatelessWidget {
+  late PremiumAdInfoPageBloc bloc;
   late AppThemeV2 _appTheme;
 
   Widget _buildImage() {
@@ -29,7 +29,7 @@ class AdWarningPage extends StatelessWidget {
       child: Animate(
         effects: [FadeEffect()],
         child: Text(
-          tr("pages.ad_warning_page.txt_title"),
+          tr("pages.premium_ad_info_page.txt_title"),
           style: _appTheme.fonts.sTitle.bold.style,
           textAlign: TextAlign.center,
         ),
@@ -41,8 +41,8 @@ class AdWarningPage extends StatelessWidget {
     return Container(
       width: 280.sp,
       child: Text(
-        tr("pages.ad_warning_page.txt_info"),
-        style: _appTheme.fonts.body.smallHeight.style,
+        tr("pages.premium_ad_info_page.txt_info"),
+        style: _appTheme.fonts.sBody.smallHeight.style,
         textAlign: TextAlign.center,
       ),
     );
@@ -50,7 +50,7 @@ class AdWarningPage extends StatelessWidget {
 
   Widget _buildButton() {
     return GestureDetector(
-      onTap: () async => await bloc.close(),
+      onTap: () async => await bloc.confirm(),
       child: Container(
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 16.sp),
@@ -63,7 +63,7 @@ class AdWarningPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.sp),
         ),
         child: Text(
-          tr("pages.ad_warning_page.btn_confirm"),
+          tr("pages.premium_ad_info_page.btn_confirm"),
           style: _appTheme.fonts.sTitle.bold.style,
           textAlign: TextAlign.center,
         ),
@@ -73,7 +73,7 @@ class AdWarningPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bloc = BlocProvider.of<AdWarningPageBloc>(context);
+    bloc = BlocProvider.of<PremiumAdInfoPageBloc>(context);
     _appTheme = AppThemeV2.of(context);
 
     return PageLayout(

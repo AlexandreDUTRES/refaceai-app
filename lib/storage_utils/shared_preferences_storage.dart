@@ -1,7 +1,5 @@
 library shared_preferences_storage;
 
-import 'dart:convert';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesStorage {
@@ -35,16 +33,25 @@ class SharedPreferencesStorage {
     return val == true;
   }
 
-  // SAVED PICTURES
-  static Future<void> storeSavedPictures(Map<String, String> val) async {
-    await _prefs.setString("saved_pictures", json.encode(val));
+  // APP REVIEW
+  static Future<void> storeAppReview(int val) async {
+    await _prefs.setInt("app_review", val);
   }
 
-  static Map<String, String> getSavedPictures() {
-    String? val = _prefs.getString("saved_pictures");
-    if (val == null) return {};
-    return Map<String, String>.from(json.decode(val));
+  static int? getAppReview() {
+    return _prefs.getInt("app_review");
   }
+
+  // SAVED PICTURES
+  // static Future<void> storeSavedPictures(Map<String, String> val) async {
+  //   await _prefs.setString("saved_pictures", json.encode(val));
+  // }
+
+  // static Map<String, String> getSavedPictures() {
+  //   String? val = _prefs.getString("saved_pictures");
+  //   if (val == null) return {};
+  //   return Map<String, String>.from(json.decode(val));
+  // }
 
   // FCM TOPIC
   static Future<void> storeFcmTopic(String topic) async {

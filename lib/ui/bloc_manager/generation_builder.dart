@@ -3,12 +3,16 @@ import 'package:photogenerator/main.dart';
 import 'package:photogenerator/models/bloc_data/generation_bloc_data.dart';
 import 'package:photogenerator/models/generation.dart';
 
-class GenerationsBuilder extends StatelessWidget {
-  final Widget Function(List<Generation>) builder;
-  final String? promptId;
+class GenerationBuilder extends StatelessWidget {
+  final Widget Function(Generation) builder;
+  final String generationId;
   final Widget? placeHolder;
 
-  GenerationsBuilder(this.builder, {this.placeHolder, this.promptId});
+  GenerationBuilder(
+    this.builder, {
+    required this.generationId,
+    this.placeHolder,
+  });
 
   Widget get _placeHolder => placeHolder ?? Container();
 
@@ -18,10 +22,8 @@ class GenerationsBuilder extends StatelessWidget {
       stream: blocManager.generationBloc.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) return _placeHolder;
-        return builder(snapshot.data!.sortedGenerations
-            .where((generation) =>
-                promptId == null ? true : generation.promptId == promptId)
-            .toList());
+        final generation = snapshot.data!.generations.firstWhere((g) => g.id == generationId);
+        return builder(generation);
       },
     );
   }

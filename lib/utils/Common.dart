@@ -25,10 +25,10 @@ class Common {
         SnackBar(
           content: Text(
             msg ?? tr("utils.common.snackbar_error"),
-            style: _appTheme.fonts.body.background.style,
+            style: _appTheme.fonts.body.style,
           ),
           duration: Duration(seconds: 5),
-          backgroundColor: _appTheme.palette.textColor.withOpacity(0.8),
+          backgroundColor: Colors.grey[900],
         ),
       );
     } catch (e) {
@@ -62,9 +62,10 @@ class Common {
       );
   }
 
-  static Future<void> goToGenerationPage(Generation generation) async {
-    List<Generation> generations =
-        blocManager.generationBloc.blocData!.sortedGenerations;
+  static Future<void> goToGenerationPage({
+    required Generation generation,
+    required List<Generation> generations,
+  }) async {
     await GlobalNavigator().navigate(
       "/GenerationPage",
       args: {
@@ -74,7 +75,10 @@ class Common {
     );
   }
 
-  static Future<void> goToModelPage(Model model) async {
+  static Future<void> goToModelPage(
+    Model model, [
+    bool directUse = false,
+  ]) async {
     List<Model> models = blocManager.modelBloc.blocData!.categories
         .firstWhere((c) => c.models.indexWhere((m) => m.id == model.id) != -1)
         .models;
@@ -83,6 +87,7 @@ class Common {
       args: {
         "models": models,
         "index": models.indexWhere((m) => m.id == model.id),
+        "directUse": directUse,
       },
     );
   }

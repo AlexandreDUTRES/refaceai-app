@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
             color: _appTheme.palette.borderColor,
             border: Border(
               top: BorderSide(
-                color: _appTheme.palette.borderColor.withOpacity(0.8),
+                color: _appTheme.palette.borderColor.withValues(alpha:0.8),
                 width: 1.sp,
               ),
             ),
@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                         ),
                         Expanded(
                           child: _buildNavigationIcon(
-                            text: tr("pages.home.btn_nav_images"),
+                            text: tr("pages.home.btn_nav_collection"),
                             iconData: Icons.photo_library_outlined,
                             isActive: snapshot.data!.navigationState ==
                                 HomeNavigationState.generations,

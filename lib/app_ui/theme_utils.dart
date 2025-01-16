@@ -32,8 +32,8 @@ class ThemeUtils {
     return InputDecorationTheme(
       alignLabelWithHint: true,
       filled: true,
-      fillColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
-        if (states.contains(MaterialState.disabled)) {
+      fillColor: WidgetStateColor.resolveWith((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
           return palette.backgroundColor;
         }
         return palette.backgroundColor;
@@ -69,8 +69,8 @@ class ThemeUtils {
     double sp,
   ) {
     return CheckboxThemeData(
-      fillColor: MaterialStateProperty.resolveWith<Color>((s) {
-        if (s.contains(MaterialState.selected)) return palette.primaryColor;
+      fillColor: WidgetStateColor.resolveWith((s) {
+        if (s.contains(WidgetState.selected)) return palette.primaryColor;
         return palette.backgroundColor;
       }),
       side: BorderSide(
@@ -80,7 +80,7 @@ class ThemeUtils {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(3 * sp),
       ),
-      checkColor: MaterialStateProperty.all<Color>(palette.backgroundColor),
+      checkColor: WidgetStatePropertyAll(palette.backgroundColor),
       visualDensity: VisualDensity.compact,
     );
   }

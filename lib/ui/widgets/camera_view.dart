@@ -100,8 +100,11 @@ class CameraViewState extends State<CameraView> {
           ? ImageFormatGroup.nv21 // for Android
           : ImageFormatGroup.bgra8888,
     );
-    _controller?.initialize().then((_) => setState(() {}));
-    _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
+    _controller?.initialize().then((_) {
+      if (!mounted) return;
+      _controller?.lockCaptureOrientation(DeviceOrientation.portraitUp);
+      setState(() {});
+    });
   }
 
   Future _stopLiveFeed() async {

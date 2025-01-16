@@ -20,7 +20,6 @@ class GlobalLoader {
     _loaderColor = loaderColor;
     _size = size;
     return GlobalLoaderOverlay(
-      useDefaultLoading: false,
       overlayColor: _overlayColor,
       child: child,
     );

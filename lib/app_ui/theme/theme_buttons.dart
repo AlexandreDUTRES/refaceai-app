@@ -120,7 +120,7 @@ class ThemeButtons extends ThemeExtension<ThemeButtons> {
       textColor: _palette.primaryColor,
     );
     _bottomElevated = _createStyle(
-      backgroundColor: _palette.textColor.withOpacity(0.8),
+      backgroundColor: _palette.textColor.withValues(alpha: 0.8),
       textSize: 18,
       textColor: _palette.textColor,
       verticalPadding: 16,
@@ -140,36 +140,36 @@ class ThemeButtons extends ThemeExtension<ThemeButtons> {
   }) {
     return ButtonWatch(
       ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll<Color>(backgroundColor),
-        foregroundColor: MaterialStatePropertyAll<Color>(textColor),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStatePropertyAll<Color>(backgroundColor),
+        foregroundColor: WidgetStatePropertyAll<Color>(textColor),
+        shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius * _sp),
           ),
         ),
         side: borderColor != null
-            ? MaterialStateProperty.all<BorderSide>(
+            ? WidgetStatePropertyAll<BorderSide>(
                 BorderSide(
                   color: borderColor,
                   width: 1 * _sp,
                 ),
               )
             : null,
-        textStyle: MaterialStateProperty.all<TextStyle>(
+        textStyle: WidgetStatePropertyAll<TextStyle>(
           TextStyle(
             fontFamily: 'Roboto',
             fontSize: textSize * _sp,
             fontWeight: textWeight,
           ),
         ),
-        padding: MaterialStateProperty.all<EdgeInsets>(
+        padding: WidgetStatePropertyAll<EdgeInsets>(
           EdgeInsets.symmetric(
             vertical: verticalPadding * _sp,
             horizontal: horizontalPadding * _sp,
           ),
         ),
-        elevation: const MaterialStatePropertyAll<double>(0),
-        minimumSize: const MaterialStatePropertyAll<Size>(Size.zero),
+        elevation: const WidgetStatePropertyAll<double>(0),
+        minimumSize: const WidgetStatePropertyAll<Size>(Size.zero),
       ),
       _palette,
     );

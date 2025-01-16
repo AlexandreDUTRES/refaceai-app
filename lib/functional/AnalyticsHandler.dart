@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 class AnalyticsHandler {
   static void navigation(String name) {
     try {
-      FirebaseAnalytics.instance.setCurrentScreen(
+      FirebaseAnalytics.instance.logScreenView(
         screenName: name,
       );
     } catch (e) {

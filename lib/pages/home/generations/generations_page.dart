@@ -54,13 +54,16 @@ class GenerationsPage extends StatelessWidget {
     required List<Generation> generations,
   }) {
     return GestureDetector(
-      onTap: () async => await Common.goToGenerationPage(generation),
+      onTap: () async => await Common.goToGenerationPage(
+        generation: generation,
+        generations: generations,
+      ),
       child: Container(
         height: double.infinity,
         width: double.infinity,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         decoration: BoxDecoration(
-          color: _appTheme.palette.secondaryColor.withOpacity(0.2),
+          color: _appTheme.palette.secondaryColor.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(20.sp),
         ),
         child: CachedNetworkImage(

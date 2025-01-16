@@ -3,6 +3,7 @@ import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
 import 'package:photogenerator/bottom_modals/delete_generation/delete_generation_modal_bloc.dart';
+import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/ui/widgets/bottom_modal_layout.dart';
 
 // responsive ok
@@ -16,7 +17,7 @@ class DeleteGenerationModal extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 16.sp),
       child: Text(
-        "Confirmez-vous la suppression de cette image ?",
+        tr('bottom_modals.delete_generation.txt_title'),
         style: _appTheme.fonts.sBody.semibold.style,
         textAlign: TextAlign.center,
       ),
@@ -38,7 +39,7 @@ class DeleteGenerationModal extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.sp),
         ),
         child: Text(
-          "Confirmer",
+          tr('globals.confirm'),
           style: _appTheme.fonts.body.bold.style,
           textAlign: TextAlign.center,
         ),

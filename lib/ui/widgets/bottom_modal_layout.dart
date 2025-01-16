@@ -90,7 +90,7 @@ class _BottomModalLayoutState extends State<BottomModalLayout> {
                         width: 56.sp,
                         height: 5.sp,
                         decoration: BoxDecoration(
-                          color: _appTheme.palette.textColor.withOpacity(0.5),
+                          color: _appTheme.palette.textColor.withValues(alpha:0.5),
                           borderRadius: BorderRadius.circular(100.sp),
                         ),
                       ),

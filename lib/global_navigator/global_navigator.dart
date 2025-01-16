@@ -59,16 +59,16 @@ class GlobalNavigator {
   void setStatusBarTheme() {
     Statusbarz.instance.setTheme(StatusbarzTheme(
       darkStatusBar: SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.white.withOpacity(0.01),
+        systemNavigationBarColor: Colors.white.withValues(alpha:0.01),
         systemNavigationBarIconBrightness: Brightness.dark,
-        statusBarColor: Colors.white.withOpacity(0.01),
+        statusBarColor: Colors.white.withValues(alpha:0.01),
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.dark,
       ),
       lightStatusBar: SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.black.withOpacity(0.01),
+        systemNavigationBarColor: Colors.black.withValues(alpha:0.01),
         systemNavigationBarIconBrightness: Brightness.light,
-        statusBarColor: Colors.black.withOpacity(0.01),
+        statusBarColor: Colors.black.withValues(alpha:0.01),
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.light,
       ),

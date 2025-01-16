@@ -1,19 +1,27 @@
 import 'dart:math';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/global_localization/utils.dart';
 import 'package:photogenerator/global_navigator/global_navigator.dart';
+import 'package:photogenerator/models/generation.dart';
 import 'package:photogenerator/models/model.dart';
 import 'package:photogenerator/pages/model/model_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
+import 'package:photogenerator/ui/bloc_manager/generations_builder.dart';
 import 'package:photogenerator/ui/widgets/dynamic_network_images.dart';
+import 'package:photogenerator/ui/widgets/measure_size_render_object.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:photogenerator/ui/widgets/page_top_bar.dart';
 import 'package:photogenerator/ui/widgets/random_shimmer.dart';
+import 'package:photogenerator/ui/widgets/static_grid.dart';
+import 'package:photogenerator/utils/Common.dart';
 import 'package:preload_page_view/preload_page_view.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 // ignore: must_be_immutable
 class ModelPage extends StatelessWidget {
@@ -63,6 +71,11 @@ class ModelPage extends StatelessWidget {
                   ),
                 ),
               ),
+              if (model.type == ModelType.premium_ad)
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: _buildModelPremiumAdBadge().padding(bottom: 25.sp),
+                ),
             ],
           ),
         ),
@@ -70,111 +83,207 @@ class ModelPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoText({
-    required String title,
-    required String description,
-    required IconData iconData,
-    required Color iconColor,
+  Widget _buildMainButton(Model model) {
+    IconData icon;
+    String text;
+    Future<void> Function() onTap;
+
+    if (model.type == ModelType.premium_ad && !model.owned) {
+      icon = Icons.lock_open_outlined;
+      text = tr("pages.model.btn_unlock_model");
+      onTap = bloc.unlockPremiumAdModel;
+    } else {
+      icon = Icons.photo_library_outlined;
+      text = tr("pages.model.btn_select_photo");
+      onTap = bloc.openGalleryPage;
+    }
+
+    return MeasureSize(
+      onChange: (Size s) => bloc.setPhotoButtonHeight(s.height),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(horizontal: 16.sp),
+          padding: EdgeInsets.symmetric(
+            vertical: 15.sp,
+            horizontal: 50.sp,
+          ),
+          decoration: BoxDecoration(
+            gradient: _appTheme.palette.primaryGradient,
+            borderRadius: BorderRadius.circular(12.sp),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 25.sp,
+                color: _appTheme.palette.textColor,
+              ),
+              Padding(padding: EdgeInsets.only(left: 8.sp)),
+              Text(
+                text,
+                style: _appTheme.fonts.xsTitle.bold.style,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGenerationContainer({
+    required double size,
+    required Generation generation,
+    required List<Generation> generations,
   }) {
-    return Container(
+    return GestureDetector(
+      onTap: () async => await Common.goToGenerationPage(
+        generation: generation,
+        generations: generations,
+      ),
+      child: Container(
+        height: size,
+        width: size,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        decoration: BoxDecoration(
+          color: _appTheme.palette.secondaryColor.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(10.sp),
+        ),
+        child: CachedNetworkImage(
+          imageUrl: generation.url,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGenerationsList(List<Generation> generations) {
+    return SizedBox(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 24.sp),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 45.sp,
-            height: 45.sp,
-            decoration: BoxDecoration(
-              color: iconColor,
-              shape: BoxShape.circle,
-            ),
-            alignment: Alignment.center,
-            child: Icon(
-              iconData,
-              size: 25.sp,
-              color: _appTheme.palette.textColor,
-            ),
-          ),
-          Padding(padding: EdgeInsets.only(left: 15.sp)),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: _appTheme.fonts.sBody.noHeight.semibold.style,
-                ),
-                Padding(padding: EdgeInsets.only(top: 6.sp)),
-                Text(
-                  description,
-                  style: _appTheme.fonts.xsBody.style,
-                ),
-              ],
-            ),
-          ),
+          Padding(padding: EdgeInsets.only(top: 25.sp)),
+          Text(
+            tr("pages.model.title_collection"),
+            style: _appTheme.fonts.xsTitle.bold.style,
+          ).padding(horizontal: 16.sp, bottom: 10.sp),
+          StaticGrid(
+            columnCount: 3,
+            verticalGap: 8.sp,
+            horizontalGap: 8.sp,
+            children: generations
+                .map(
+                  (generation) => LayoutBuilder(
+                    builder: (_, constraints) => _buildGenerationContainer(
+                      size: constraints.maxWidth,
+                      generation: generation,
+                      generations: generations,
+                    ),
+                  ),
+                )
+                .toList(),
+          ).padding(horizontal: 16.sp),
         ],
       ),
     );
   }
 
-  Widget _buildPhotoButton() {
-    return GestureDetector(
-      onTap: () async => await bloc.openGalleryPage(),
-      child: Container(
-        width: double.infinity,
-        margin: EdgeInsets.symmetric(horizontal: 16.sp),
-        padding: EdgeInsets.symmetric(
-          vertical: 15.sp,
-          horizontal: 50.sp,
-        ),
-        decoration: BoxDecoration(
-          gradient: _appTheme.palette.primaryGradient,
-          borderRadius: BorderRadius.circular(12.sp),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.photo_library_outlined,
-              size: 25.sp,
-              color: _appTheme.palette.textColor,
-            ),
-            Padding(padding: EdgeInsets.only(left: 8.sp)),
-            Text(
-              tr("pages.model.btn_select_photo"),
-              style: _appTheme.fonts.xsTitle.bold.style,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
+  Widget _buildEmptyGenerationContainer() {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        children: [
+          CustomLotties.animated__ghost.build(height: 200.sp, repeat: true),
+          Text(
+            tr("pages.model.txt_empty_collection_1"),
+            style: _appTheme.fonts.sBody.style,
+            textAlign: TextAlign.center,
+          ).padding(horizontal: 16.sp, bottom: 3.sp),
+          Text(
+            tr("pages.model.txt_empty_collection_2"),
+            style: _appTheme.fonts.xsBody.style.copyWith(fontSize: 10.sp),
+            textAlign: TextAlign.center,
+          ).opacity(0.6).padding(horizontal: 16.sp),
+        ],
       ),
     );
+  }
+
+  Widget _buildModelPremiumAdBadge() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          Icons.auto_awesome,
+          color: Colors.white,
+          size: 15.sp,
+          shadows: [
+            Shadow(
+              color: Colors.black.withValues(alpha: 0.3),
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ).padding(right: 4.sp),
+        Text(
+          tr("globals.premium"),
+          style: _appTheme.fonts.xsBody.bold.style.copyWith(
+            shadows: [
+              Shadow(
+                offset: Offset(1, 1),
+                blurRadius: 2,
+                color: Colors.black.withValues(alpha: 0.3),
+              ),
+            ],
+          ),
+        ).padding(bottom: 1.5.sp),
+      ],
+    )
+        .padding(
+          horizontal: 8.sp,
+          vertical: 4.sp,
+          right: 10.sp,
+        )
+        .decorated(
+          color: Color(0xFFFFD700).withValues(alpha: 0.85),
+          borderRadius: BorderRadius.circular(50.sp),
+        );
   }
 
   Widget _buildModelPage(BoxConstraints constraints, Model model) {
     return Container(
       width: constraints.maxWidth,
       height: constraints.maxHeight,
-      child: Column(
+      child: Stack(
         children: [
-          _buildModelImage(model),
-          Padding(padding: EdgeInsets.only(top: 25.sp)),
-          _buildInfoText(
-            title: tr("pages.model.txt_info_1_title"),
-            description: tr("pages.model.txt_info_1_description"),
-            iconData: Icons.check,
-            iconColor: Colors.blue[800]!,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildModelImage(model),
+                GenerationsBuilder(
+                  (generations) => generations.isEmpty
+                      ? _buildEmptyGenerationContainer()
+                      : _buildGenerationsList(generations),
+                  promptId: model.id,
+                ),
+                StreamBuilder<ModelPageData>(
+                  stream: bloc.stream,
+                  builder: (_, snapshot) => SizedBox(
+                    height: snapshot.data?.photoButtonHeight ?? 0,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(bottom: 15.sp)),
+              ],
+            ),
           ),
-          Padding(padding: EdgeInsets.only(top: 20.sp)),
-          _buildInfoText(
-            title: tr("pages.model.txt_info_2_title"),
-            description: tr("pages.model.txt_info_2_description"),
-            iconData: Icons.close,
-            iconColor: Colors.red[800]!,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: _buildMainButton(model).padding(bottom: 15.sp),
           ),
-          Expanded(child: Container()),
-          _buildPhotoButton(),
-          Padding(padding: EdgeInsets.only(top: 15.sp)),
         ],
       ),
     );
@@ -194,6 +303,9 @@ class ModelPage extends StatelessWidget {
         double topPadding,
         double bottomPadding,
       ) {
+        Future.delayed(Duration.zero)
+            .then((_) async => await bloc.afterFirstBuild());
+
         return Padding(
           padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
           child: PreloadPageView.builder(

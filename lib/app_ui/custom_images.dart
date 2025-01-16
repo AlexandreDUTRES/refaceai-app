@@ -98,6 +98,11 @@ enum CustomPngs {
   others__icon_instagram,
   others__icon_share,
   others__icon_whatsapp,
+  others__smiley_dissatisfied,
+  others__smiley_neutral,
+  others__smiley_satisfied,
+  others__smiley_very_dissatisfied,
+  others__smiley_very_satisfied,
   others__splash_background;
 
   static String _getFilePackagePath(String name) {
@@ -106,6 +111,8 @@ enum CustomPngs {
 
   String get path => _getFilePackagePath(
       toString().replaceFirst("CustomPngs.", "").split("__").join("/"));
+
+  ImageProvider get provider => AssetImage(path);
 
   Widget build({
     double? width,
@@ -127,6 +134,7 @@ enum CustomPngs {
 
 enum CustomLotties {
   animated__ad,
+  animated__ghost,
   animated__loader,
   animated__message;
 

@@ -1,7 +1,5 @@
 import 'package:photogenerator/global_navigator/models/app_route.dart';
 import 'package:photogenerator/global_navigator/utils.dart';
-import 'package:photogenerator/pages/ad_warning/ad_warning_page.dart';
-import 'package:photogenerator/pages/ad_warning/ad_warning_page_bloc.dart';
 import 'package:photogenerator/pages/category/category_page.dart';
 import 'package:photogenerator/pages/category/category_page_bloc.dart';
 import 'package:photogenerator/pages/gallery/gallery_page.dart';
@@ -20,6 +18,8 @@ import 'package:photogenerator/pages/photo/photo_page.dart';
 import 'package:photogenerator/pages/photo/photo_page_bloc.dart';
 import 'package:photogenerator/pages/onboarding/onboarding_page.dart';
 import 'package:photogenerator/pages/onboarding/onboarding_page_bloc.dart';
+import 'package:photogenerator/pages/premium_ad_info/premium_ad_info_page.dart';
+import 'package:photogenerator/pages/premium_ad_info/premium_ad_info_page_bloc.dart';
 import 'package:photogenerator/pages/settings/settings_page.dart';
 import 'package:photogenerator/pages/settings/settings_page_bloc.dart';
 import 'package:photogenerator/pages/splash/splash_page.dart';
@@ -117,15 +117,15 @@ class AppRoutes {
           createBloc: (args) => OnboardingPageBloc(args),
           createChild: (_) => OnboardingPage(),
         ),
-        AppRoute<AdWarningPageBloc>(
-          name: "/AdWarningPage",
-          dataSharingName: "AdWarningPage",
+        AppRoute<PremiumAdInfoPageBloc>(
+          name: "/PremiumAdInfoPage",
+          dataSharingName: "PremiumAdInfoPage",
           pushFunction: pushToGN,
           disableOverlayAlerts: true,
           forcedLightStatusBar: true,
           pageTransitionType: PageTransitionType.fade,
-          createBloc: (args) => AdWarningPageBloc(args),
-          createChild: (_) => AdWarningPage(),
+          createBloc: (args) => PremiumAdInfoPageBloc(args),
+          createChild: (_) => PremiumAdInfoPage(),
         ),
         AppRoute<CameraPageBloc>(
           name: "/CameraPage",

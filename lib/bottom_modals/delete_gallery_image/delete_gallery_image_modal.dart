@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
-import 'package:photogenerator/bottom_modals/delete_user/delete_user_modal_bloc.dart';
+import 'package:photogenerator/bottom_modals/delete_gallery_image/delete_gallery_image_modal_bloc.dart';
 import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/ui/widgets/bottom_modal_layout.dart';
 
 // responsive ok
 // ignore: must_be_immutable
-class DeleteUserModal extends StatelessWidget {
-  late DeleteUserModalBloc bloc;
+class DeleteGalleryImageModal extends StatelessWidget {
+  late DeleteGalleryImageModalBloc bloc;
   late AppThemeV2 _appTheme;
 
   Widget _buildInfoText() {
@@ -17,7 +17,7 @@ class DeleteUserModal extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 16.sp),
       child: Text(
-        tr('bottom_modals.delete_user.txt_title'),
+        tr('bottom_modals.delete_gallery_image.txt_title'),
         style: _appTheme.fonts.sBody.semibold.style,
         textAlign: TextAlign.center,
       ),
@@ -49,12 +49,12 @@ class DeleteUserModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bloc = BlocProvider.of<DeleteUserModalBloc>(context);
+    bloc = BlocProvider.of<DeleteGalleryImageModalBloc>(context);
     _appTheme = AppThemeV2.of(context);
 
     return BottomModalLayout(
       backgroundColor: _appTheme.palette.borderColor,
-      content: StreamBuilder<DeleteUserModalData>(
+      content: StreamBuilder<DeleteGalleryImageModalData>(
         stream: bloc.stream,
         builder: (context, snapshot) {
           if (!snapshot.hasData) return Container();

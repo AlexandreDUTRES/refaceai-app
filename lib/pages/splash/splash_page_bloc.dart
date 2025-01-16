@@ -24,7 +24,7 @@ class SplashPageBloc extends Bloc<SplashPageData> {
 
   Future<void> _compute(BuildContext context) async {
     AdsHandler.getRewardedAd();
-    AdsHandler.getInterstitialAd();
+    // AdsHandler.getInterstitialAd();
     blocManager.initializeAllBlocs();
 
     try {
@@ -43,7 +43,7 @@ class SplashPageBloc extends Bloc<SplashPageData> {
     try {
       await Future.wait([
         blocManager.generationBloc.refresh(blocManager.userBloc.userId!),
-        blocManager.modelBloc.refresh(),
+        blocManager.modelBloc.refreshAll(blocManager.userBloc.userId!),
       ], eagerError: true);
     } catch (e) {
       if (kDebugMode) print(e);

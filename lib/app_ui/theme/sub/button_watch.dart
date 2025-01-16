@@ -17,7 +17,7 @@ class ButtonWatch {
 
   ButtonWatch get darkFont => ButtonWatch(
         _primary.copyWith(
-          foregroundColor: MaterialStatePropertyAll<Color>(_palette.textColor),
+          foregroundColor: WidgetStatePropertyAll(_palette.textColor),
         ),
         _palette,
       );
@@ -25,11 +25,11 @@ class ButtonWatch {
 
   ButtonWatch get noHorizontalPadding => ButtonWatch(
         _primary.copyWith(
-          padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
+          padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(
               horizontal: 0,
               vertical: _primary.padding!
-                  .resolve(MaterialState.values.toSet())!
+                  .resolve(WidgetState.values.toSet())!
                   .vertical,
             ),
           ),
@@ -39,11 +39,11 @@ class ButtonWatch {
 
   ButtonWatch get noVerticalPadding => ButtonWatch(
         _primary.copyWith(
-          padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
+          padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(
               vertical: 0,
               horizontal: _primary.padding!
-                  .resolve(MaterialState.values.toSet())!
+                  .resolve(WidgetState.values.toSet())!
                   .horizontal,
             ),
           ),
@@ -53,8 +53,8 @@ class ButtonWatch {
 
   ButtonWatch setFontSize(double fontSize) => ButtonWatch(
         _primary.copyWith(
-          textStyle: MaterialStateProperty.all<TextStyle>(
-            _primary.textStyle!.resolve(MaterialState.values.toSet())!.copyWith(
+          textStyle: WidgetStatePropertyAll<TextStyle>(
+            _primary.textStyle!.resolve(WidgetState.values.toSet())!.copyWith(
                   fontSize: fontSize,
                 ),
           ),

@@ -12,17 +12,21 @@ String _extractLocaleValue(Map<String, String> map, Locale locale) {
 class ModelCategory {
   String _id;
   Map<String, String> _name;
+  String _banner;
   List<Model> _models;
 
   ModelCategory({
     required String id,
     required Map<String, String> name,
+    required String banner,
     required List<Model> models,
   })  : _id = id,
         _name = name,
+        _banner = banner,
         _models = models;
 
   String get id => _id;
+  String get banner => _banner;
   String name(Locale locale) => _extractLocaleValue(_name, locale);
   
   int get modelsCnt => _models.length;
@@ -34,6 +38,7 @@ class ModelCategory {
     return ModelCategory(
       id: data["id"],
       name: Map<String, String>.from(data["name"]),
+      banner: data["banner"],
       models: List<Model>.from(data["models"].map((m) => Model.fromMap(m))),
     );
   }
@@ -47,5 +52,10 @@ class ModelCategory {
   @override
   String toString() {
     return json.encode(toMap());
+  }
+
+  void replaceModel(Model model) {
+    final int index = _models.indexWhere((m) => m.id == model.id);
+    if (index != -1) _models[index] = model;
   }
 }

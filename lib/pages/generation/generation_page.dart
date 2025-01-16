@@ -2,16 +2,24 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:photogenerator/app_ui/custom_images.dart';
 import 'package:photogenerator/app_ui/screenutil.dart';
 import 'package:photogenerator/app_ui/theme/app_theme_v2.dart';
 import 'package:photogenerator/global_localization/easy_localization.dart';
 import 'package:photogenerator/models/generation.dart';
+import 'package:photogenerator/models/model.dart';
 import 'package:photogenerator/pages/generation/generation_page_bloc.dart';
 import 'package:photogenerator/bloc_utils/bloc_provider.dart';
+import 'package:photogenerator/ui/bloc_manager/generation_builder.dart';
+import 'package:photogenerator/ui/bloc_manager/models_builder.dart';
+import 'package:photogenerator/ui/widgets/model_preview.dart';
 import 'package:photogenerator/ui/widgets/page_layout.dart';
 import 'package:photogenerator/ui/widgets/page_top_bar.dart';
+import 'package:photogenerator/ui/widgets/static_grid.dart';
+import 'package:photogenerator/utils/Common.dart';
 import 'package:pinch_zoom/pinch_zoom.dart';
 import 'package:preload_page_view/preload_page_view.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 // ignore: must_be_immutable
 class GenerationPage extends StatelessWidget {
@@ -27,77 +35,53 @@ class GenerationPage extends StatelessWidget {
           width: constraints.maxWidth,
           height: constraints.maxWidth,
           decoration: BoxDecoration(
-            color: _appTheme.palette.secondaryColor.withOpacity(0.2),
+            color: _appTheme.palette.secondaryColor.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(20.sp),
           ),
-          child: PinchZoom(
-            maxScale: 5,
-            child: CachedNetworkImage(
-              imageUrl: generation.url,
-              fit: BoxFit.cover,
-            ),
+          child: Stack(
+            children: [
+              PinchZoom(
+                maxScale: 5,
+                child: CachedNetworkImage(
+                  imageUrl: generation.url,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                bottom: 6.sp,
+                right: 6.sp,
+                child: Text(
+                  tr("pages.generation.txt_reuse_model"),
+                  style: _appTheme.fonts.xsBody.bold.style.copyWith(
+                    shadows: [
+                      Shadow(
+                        offset: Offset(1, 1),
+                        blurRadius: 2,
+                        color: Colors.black.withValues(alpha: 0.3),
+                      ),
+                    ],
+                  ),
+                )
+                    .padding(
+                      horizontal: 8.sp,
+                      vertical: 6.sp,
+                    )
+                    .decorated(
+                      color: Colors.black.withValues(alpha: 0.6),
+                      borderRadius: BorderRadius.circular(50.sp),
+                    )
+                    .gestures(
+                      onTap: bloc.goToModelPage,
+                    ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _buildSaveContainer(int index) {
-    return StreamBuilder<GenerationPageData>(
-      stream: bloc.stream,
-      builder: (context, snapshot) {
-        bool isLocallySaved = snapshot.data?.isLocallySaved[index] ?? false;
-        return Container(
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: GestureDetector(
-            onTap: isLocallySaved
-                ? null
-                : () async => await bloc.locallySaveImage(),
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8.sp, horizontal: 12.sp),
-              decoration: BoxDecoration(
-                color: _appTheme.palette.textColor.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(20.sp),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  isLocallySaved
-                      ? Icon(
-                          Icons.check_circle_rounded,
-                          color: _appTheme.palette.textColor,
-                          size: 18.sp,
-                        )
-                      : Icon(
-                          Icons.download_for_offline_rounded,
-                          color: _appTheme.palette.textColor,
-                          size: 18.sp,
-                        ),
-                  Padding(padding: EdgeInsets.only(left: 8.sp)),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 2.sp),
-                    child: isLocallySaved
-                        ? Text(
-                            tr("pages.generation.txt_saved"),
-                            style: _appTheme.fonts.sBody.bold.style,
-                          )
-                        : Text(
-                            tr("pages.generation.txt_donwload"),
-                            style: _appTheme.fonts.sBody.bold.style,
-                          ),
-                  ),
-                  Padding(padding: EdgeInsets.only(left: 5.sp)),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildPhotoButton() {
+  Widget _buildShareButton() {
     return GestureDetector(
       onTap: () async => await bloc.share(),
       child: Container(
@@ -131,22 +115,124 @@ class GenerationPage extends StatelessWidget {
     );
   }
 
-  Widget _buildDeleteButton() {
-    return GestureDetector(
-      onTap: () async => await bloc.goToDeleteGenerationModal(),
-      child: Container(
-        padding: EdgeInsets.only(
-          top: 8.sp,
-          bottom: 8.sp,
-          right: 14.sp,
-          left: 8.sp,
+  Widget _buildTopButtons(int index) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          onTap: () async => await bloc.locallySaveImage(),
+          child: Container(
+            padding: EdgeInsets.all(10.sp),
+            color: Colors.transparent,
+            child: Icon(
+              Icons.download_outlined,
+              color: _appTheme.palette.textColor,
+              size: 25.sp,
+            ),
+          ),
         ),
-        color: Colors.transparent,
-        child: Icon(
-          Icons.delete_outline,
-          size: 25.sp,
-          color: _appTheme.palette.textColor,
+        GestureDetector(
+          onTap: () async => await bloc.goToDeleteGenerationModal(),
+          child: Container(
+            padding: EdgeInsets.all(10.sp),
+            color: Colors.transparent,
+            child: Icon(
+              Icons.delete_outline,
+              size: 25.sp,
+              color: _appTheme.palette.textColor,
+            ),
+          ),
+        ).padding(right: 10.sp),
+      ],
+    );
+  }
+
+  Widget _buildReviewEmoji({
+    required CustomPngs icon,
+    required void Function() onTap,
+  }) {
+    return icon
+        .build(
+          width: 30.sp,
+          height: 30.sp,
+        )
+        .padding(all: 5.sp)
+        .backgroundColor(Colors.transparent)
+        .gestures(onTap: onTap);
+  }
+
+  Widget _buildReviewCard() {
+    return Column(
+      children: [
+        Text(
+          tr("pages.generation.txt_review"),
+          style: _appTheme.fonts.sBody.bold.style,
+          textAlign: TextAlign.start,
         ),
+        Padding(padding: EdgeInsets.only(top: 10.sp)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildReviewEmoji(
+              icon: CustomPngs.others__smiley_very_dissatisfied,
+              onTap: () => bloc.review(1),
+            ),
+            _buildReviewEmoji(
+              icon: CustomPngs.others__smiley_dissatisfied,
+              onTap: () => bloc.review(2),
+            ),
+            _buildReviewEmoji(
+              icon: CustomPngs.others__smiley_neutral,
+              onTap: () => bloc.review(3),
+            ),
+            _buildReviewEmoji(
+              icon: CustomPngs.others__smiley_satisfied,
+              onTap: () => bloc.review(4),
+            ),
+            _buildReviewEmoji(
+              icon: CustomPngs.others__smiley_very_satisfied,
+              onTap: () => bloc.review(5),
+            ),
+          ],
+        ),
+      ],
+    )
+        .padding(horizontal: 16.sp, vertical: 10.sp)
+        .decorated(
+          border: Border.all(color: _appTheme.palette.secondaryColor),
+          borderRadius: BorderRadius.circular(15.sp),
+        )
+        .padding(horizontal: 16.sp, bottom: 10.sp);
+  }
+
+  Widget _buildModelsList(List<Model> models) {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(padding: EdgeInsets.only(top: 10.sp)),
+          Text(
+            tr("pages.generation.txt_title_models"),
+            style: _appTheme.fonts.xsTitle.bold.style,
+          ).padding(horizontal: 16.sp, bottom: 10.sp),
+          StaticGrid(
+            columnCount: 3,
+            verticalGap: 8.sp,
+            horizontalGap: 8.sp,
+            children: models
+                .map(
+                  (model) => LayoutBuilder(
+                    builder: (context, constraints) => ModelPreview(
+                      model: model,
+                      width: constraints.maxWidth,
+                      onTap: () async => await Common.goToModelPage(model),
+                    ),
+                  ),
+                )
+                .toList(),
+          ).padding(horizontal: 16.sp),
+        ],
       ),
     );
   }
@@ -159,22 +245,31 @@ class GenerationPage extends StatelessWidget {
     return Container(
       width: constraints.maxWidth,
       height: constraints.maxHeight,
-      child: Column(
-        children: [
-          PageTopBar(
-            backButton: true,
-            title: tr("globals.back"),
-            additionalWidget: _buildDeleteButton(),
-          ),
-          Padding(padding: EdgeInsets.only(top: 35.sp)),
-          _buildGenerationImage(generation),
-          Padding(padding: EdgeInsets.only(top: 15.sp)),
-          _buildSaveContainer(index),
-          Padding(padding: EdgeInsets.only(top: 50.sp)),
-          Expanded(child: Container()),
-          _buildPhotoButton(),
-          Padding(padding: EdgeInsets.only(top: 15.sp)),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            PageTopBar(
+              backButton: true,
+              title: tr("globals.back"),
+              additionalWidget: _buildTopButtons(index),
+            ),
+            _buildGenerationImage(generation),
+            Padding(padding: EdgeInsets.only(top: 15.sp)),
+            _buildShareButton(),
+            Padding(padding: EdgeInsets.only(top: 20.sp)),
+            GenerationBuilder(
+              (Generation g) =>
+                  g.rating == null ? _buildReviewCard() : SizedBox(),
+              generationId: generation.id,
+            ),
+            ModelsBuilder(
+              (categories) => _buildModelsList(categories.first.models),
+              promptId: generation.promptId,
+            ),
+            Padding(padding: EdgeInsets.only(top: 20.sp)),
+          ],
+        ),
       ),
     );
   }

@@ -23,53 +23,107 @@ class ModelPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     _appTheme = AppThemeV2.of(context);
 
+    final double? borderSize =
+        model.type != ModelType.premium_ad ? null : width / 80;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: width,
         height: width,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(width / 10),
+          gradient: borderSize != null
+              ? LinearGradient(
+                  colors: [
+                    Color(0xFFFFD700),
+                    Color(0xFFB8860B),
+                    Color(0xFFDAA520),
+                    Color(0xFFFCC200),
+                    Color(0xFFFFD700),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : null,
+          border: borderSize != null
+              ? Border.all(color: Colors.transparent, width: borderSize)
+              : null,
+          shape: BoxShape.rectangle,
         ),
-        child: RandomShimmer(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              DynamicNetworkImages(
-                urls: model.randomImages,
-                width: width,
-                height: width,
-              ),
-              Container(
-                height: width / 4,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.transparent,
-                      Colors.black.withOpacity(0.8),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+        child: Container(
+          width: width,
+          height: width,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          decoration: BoxDecoration(
+            borderRadius:
+                BorderRadius.circular((width / 10) - (borderSize ?? 0)),
+          ),
+          child: RandomShimmer(
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                DynamicNetworkImages(
+                  urls: model.randomImages,
+                  width: width,
+                  height: width,
+                ),
+                Container(
+                  height: width / 4,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.transparent,
+                        Colors.black.withValues(alpha: 0.8),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                width: width,
-                padding: EdgeInsets.symmetric(
-                  vertical: width / 25,
-                  horizontal: width / 15,
-                ),
-                child: Text(
-                  model.name(Locale("fr")),
-                  style: _appTheme.fonts.body.semibold.style.copyWith(
-                    fontSize: width / 10,
+                Container(
+                  width: width,
+                  padding: EdgeInsets.symmetric(
+                    vertical: width / 25,
+                    horizontal: width / 15,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  child: Text(
+                    model.name(Locale("fr")),
+                    style: _appTheme.fonts.body.semibold.style.copyWith(
+                      fontSize: width / 10,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(1, 1),
+                          blurRadius: 2,
+                          color: Colors.black.withValues(alpha: 0.3),
+                        ),
+                      ],
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-            ],
+                if (model.type == ModelType.premium_ad)
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      margin: EdgeInsets.all(width / 30),
+                      child: Icon(
+                        Icons.auto_awesome,
+                        color: Color(0xFFFFD700),
+                        size: width / 5.5,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withValues(alpha: 0.3),
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+              ],
+            ),
           ),
         ),
       ),

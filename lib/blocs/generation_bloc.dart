@@ -39,6 +39,28 @@ class GenerationBloc extends BlocRx<GenerationBlocData> {
     return generation;
   }
 
+  Future<Generation> reviewGeneration(
+    String userId,
+    String generationId,
+    int rating,
+  ) async {
+    await Api.reviewGeneration(
+      userId,
+      generationId: generationId,
+      rating: rating,
+    );
+
+    final int index = blocData!.generations
+        .indexWhere((Generation g) => g.id == generationId);
+    if (index != -1) {
+      blocData!.generations[index].setRating(rating);
+      updateUI();
+      return blocData!.generations[index];
+    } else {
+      throw "Generation not found";
+    }
+  }
+
   Future<void> deleteGeneration(
     String userId, {
     required Generation generation,

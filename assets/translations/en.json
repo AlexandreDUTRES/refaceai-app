@@ -1,33 +1,46 @@
 {
     "globals": {
         "back": "Back",
+        "confirm": "Confirm",
+        "premium": "Premium",
         "share": "Share"
     },
-    "pages": {
-        "ad_warning_page": {
-            "btn_confirm": "I understand",
-            "txt_info": "This helps fund the app and keeps you entertained while generating.",
-            "txt_title": "An ad is about to be displayed"
+    "bottom_modals": {
+        "delete_gallery_image": {
+            "txt_title": "Are you sure you want to delete this image?"
         },
+        "delete_generation": {
+            "txt_title": "Are you sure you want to delete this image?"
+        },
+        "delete_user": {
+            "txt_title": "Are you sure you want to delete your account and data?"
+        }
+    },
+    "pages": {
         "gallery": {
-            "txt_title": "Select an image"
+            "txt_title": "Select an image",
+            "txt_info_1_title": "Select a single photo of yourself",
+            "txt_info_1_description": "Your face should be clearly visible, neutral, sufficiently large, well-lit, and centered.",
+            "txt_info_2_title": "Avoid the following",
+            "txt_info_2_description": "No group photos, no nudity, no animals, minimal accessories, no funny faces.",
+            "txt_cropper_title": "Select the face"
         },
         "generation": {
-            "txt_saved": "Saved to gallery",
-            "txt_donwload": "Download to gallery",
+            "txt_reuse_model": "Reuse this model",
+            "txt_review": "How do you find the generation?",
+            "txt_title_models": "Recommendations",
             "share_msg": "Look what I created with ReFaceAI! Try it yourself and transform in an instant! 🌟 #ReFaceAI",
-            "snackbar_image_saved": "The image has been successfully downloaded to your device"
+            "snackbar_image_saved": "The image has been successfully downloaded to your device",
+            "snackbar_review_sent": "Thank you, your feedback helps us improve the app!"
         },
         "home": {
             "btn_nav_model": "Models",
-            "btn_nav_images": "Images",
+            "btn_nav_collection": "Collection",
             "generations": {
                 "txt_no_elements": "You haven't generated any images yet, choose a model to continue.",
-                "txt_title": "My images"
+                "txt_title": "My collection"
             },
-            "models": {
-                "btn_see_all": "SEE ALL ({modelsCnt})"
-            }
+            "models": {}
         },
         "loading": {
             "sentence_0": "Each generation is unique,\ntry this model as much as you like",
@@ -41,14 +54,19 @@
         },
         "model": {
             "btn_select_photo": "Choose a photo",
-            "txt_info_1_title": "Select a single photo of yourself",
-            "txt_info_1_description": "Your face should be clearly visible, neutral, sufficiently large, well-lit, and centered.",
-            "txt_info_2_title": "Avoid the following",
-            "txt_info_2_description": "No group photos, no nudity, no animals, minimal accessories, no funny faces.",
+            "btn_unlock_model": "Unlock model",
+            "title_collection": "Collection",
+            "txt_empty_collection_1": "Collection empty",
+            "txt_empty_collection_2": "Use this model to expand your collection!",
             "snackbar_no_ad": "You are in the queue, please try again in a few moments"
         },
         "photo": {
             "txt_no_face": "No face detected"
+        },
+        "premium_ad_info_page": {
+            "btn_confirm": "Continue",
+            "txt_info": "The model will be permanently added to your collection after watching.\n\nThis also helps support the app's development to bring you new content.",
+            "txt_title": "Unlock this premium model\nby watching an ad"
         },
         "settings": {
             "txt_title": "Settings",

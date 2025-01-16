@@ -1,33 +1,46 @@
 {
     "globals": {
         "back": "Retour",
+        "confirm": "Confirmer",
+        "premium": "Premium",
         "share": "Partager"
     },
-    "pages": {
-        "ad_warning_page": {
-            "btn_confirm": "J'ai compris",
-            "txt_info": "Cela permet de financer l'application et de vous faire patentier pendant la génération.",
-            "txt_title": "Une pub va être diffusée"
+    "bottom_modals": {
+        "delete_gallery_image": {
+            "txt_title": "Confirmez-vous la suppression de cette image ?"
         },
+        "delete_generation": {
+            "txt_title": "Confirmez-vous la suppression de cette image ?"
+        },
+        "delete_user": {
+            "txt_title": "Confirmez-vous la suppression de votre compte ainsi que vos données ?"
+        }
+    },
+    "pages": {
         "gallery": {
-            "txt_title": "Sélectionner une image"
+            "txt_title": "Sélectionner une image",
+            "txt_info_1_title": "Sélectionnez une seule photo de vous",
+            "txt_info_1_description": "Votre visage doit être bien visible, neutre, assez grand, bien éclairé et centré.",
+            "txt_info_2_title": "Évitez les choses suivantes",
+            "txt_info_2_description": "Pas de photo de groupe, pas de nudité, pas d'animaux, un minimum d'accessoires, pas de grimaces.",
+            "txt_cropper_title": "Sélectionner le visage"
         },
         "generation": {
-            "txt_saved": "Enregistré dans la galerie",
-            "txt_donwload": "Télécharger dans la galerie",
+            "txt_reuse_model": "Réutiliser ce modèle",
+            "txt_review": "Comment trouvez-vous la génération ?",
+            "txt_title_models": "Recommandations",
             "share_msg": "Regardez ce que j'ai créé avec ReFaceAI ! Essayez aussi et transformez-vous en un instant ! 🌟 #ReFaceAI",
-            "snackbar_image_saved": "L'image a bien été téléchargée sur votre appareil"
+            "snackbar_image_saved": "L'image a bien été téléchargée sur votre appareil",
+            "snackbar_review_sent": "Merci, votre retour nous aide à améliorer l'application !"
         },
         "home": {
             "btn_nav_model": "Modèles",
-            "btn_nav_images": "Images",
+            "btn_nav_collection": "Collection",
             "generations": {
                 "txt_no_elements": "Vous n'avez pas encore généré d'image, choisissez un modèle pour continuer.",
-                "txt_title": "Mes images"
+                "txt_title": "Ma collection"
             },
-            "models": {
-                "btn_see_all": "VOIR TOUT ({modelsCnt})"
-            }
+            "models": {}
         },
         "loading": {
             "sentence_0": "Chaque génération est unique,\ntestez ce modèle à volonté",
@@ -41,14 +54,19 @@
         },
         "model": {
             "btn_select_photo": "Choisir une photo",
-            "txt_info_1_title": "Sélectionnez une seule photo de vous",
-            "txt_info_1_description": "Votre visage doit être bien visible, neutre, assez grand, bien éclairé et centré.",
-            "txt_info_2_title": "Évitez les choses suivantes",
-            "txt_info_2_description": "Pas de photo de groupe, pas de nudité, pas d'animaux, un minimum d'accessoires, pas de grimaces.",
+            "btn_unlock_model": "Débloquer le modèle",
+            "title_collection": "Collection",
+            "txt_empty_collection_1": "Collection vide",
+            "txt_empty_collection_2": "Utilisez ce modèle pour agrandir votre collection !",
             "snackbar_no_ad": "Voud êtes en file d'attente, veuillez réessayer dans quelques instants"
         },
         "photo": {
             "txt_no_face": "Aucun visage détecté"
+        },
+        "premium_ad_info_page": {
+            "btn_confirm": "Continuer",
+            "txt_info": "Le modèle sera définitivement ajouté à votre collection après le visionnage.\n\nCela permet également de soutenir le développement de l'application pour vous proposer de nouveaux contenus.",
+            "txt_title": "Débloquer ce modèle premium\nen regardant une pub"
         },
         "settings": {
             "txt_title": "Paramètres",

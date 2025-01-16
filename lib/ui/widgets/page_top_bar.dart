@@ -12,19 +12,27 @@ class PageTopBar extends StatelessWidget {
     required this.backButton,
     required this.title,
     this.additionalWidget,
+    this.decorationImage,
+    this.innerBottomPadding,
   }) : super(key: key);
 
   final bool backButton;
   final String? title;
   final Widget? additionalWidget;
+  final DecorationImage? decorationImage;
+  final double? innerBottomPadding;
 
   @override
   Widget build(BuildContext context) {
     _appTheme = AppThemeV2.of(context);
 
     return Container(
-      height: 68.sp,
+      height: 68.sp - (innerBottomPadding ?? 0),
+      padding: EdgeInsets.symmetric(vertical: (innerBottomPadding ?? 0) / 2),
       width: double.infinity,
+      decoration: BoxDecoration(
+        image: decorationImage,
+      ),
       child: Row(
         children: [
           backButton
@@ -57,7 +65,15 @@ class PageTopBar extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       title!,
-                      style: _appTheme.fonts.sTitle.semibold.style,
+                      style: _appTheme.fonts.sTitle.semibold.style.copyWith(
+                        shadows: [
+                          Shadow(
+                            offset: Offset(1, 1),
+                            blurRadius: 2,
+                            color: Colors.black.withValues(alpha:0.3),
+                          ),
+                        ],
+                      ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),

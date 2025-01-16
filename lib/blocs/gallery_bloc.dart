@@ -36,6 +36,12 @@ class GalleryBloc extends BlocRx<GalleryBlocData> {
     return compressedFile;
   }
 
+  Future<void> deleteFile(File file) async {
+    await file.delete();
+    blocData!.files.remove(file);
+    updateUI();
+  }
+
   Future<File> _compressFile(String inPath, String outPath) async {
     XFile? xfile = await FlutterImageCompress.compressAndGetFile(
       inPath,
